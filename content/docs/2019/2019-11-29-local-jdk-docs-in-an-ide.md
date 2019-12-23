@@ -4,6 +4,7 @@ weight: 9990
 aliases:
   - /posts/loading-local-jdk-docs
   - /posts/loading-local-jdk-docs.html
+  - /latest
 ---
 
 # Loading Local JDK Docs in an IDE

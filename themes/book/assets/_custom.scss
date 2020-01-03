@@ -6,3 +6,12 @@ img.center {
     display: block;
     margin: 0 auto;
 }
+
+.book-brand-custom {
+  margin-top: 0;
+
+  img {
+    vertical-align: middle;
+    margin-right: $padding-8;
+  }
+}

@@ -246,7 +246,7 @@ class="center" >}}
 1. The `tunl0` interface is removed and all routes point to `ens5`.
 2. `worker-3`'s route points to the network gateway (`10.30.0.1`) rather than
    the host.
-  1. This is because worker-3 is on a different subnet.
+   1. This is because worker-3 is on a different subnet.
 
 With direct routing, requests from `pod-1` to `pod-2` fail.
 

@@ -343,7 +343,8 @@ don’t support BGP, which is disabled in VXLAN mode.
 Setting up Calico to use VXLAN fundamentally changes how routing occurs. Thus
 rather than altering the IPPool, I'll be redeploying on a new cluster.
 
-To enable VXLAN, as of Calico 3.11, you need to make the following 3 changes.
+To enable VXLAN, as of Calico 3.11, you need to make the following 3 changes to
+the [Calico manifest](https://docs.projectcalico.org/v3.11/manifests/calico.yaml).
 
 1. Set the `backend` to `vxlan`.
 

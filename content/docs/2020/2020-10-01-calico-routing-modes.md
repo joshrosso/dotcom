@@ -261,7 +261,7 @@ $ curl -v4 192.168.133.194 --max-time 10
 curl: (28) Connection timed out after 10001 milliseconds
 ```
 
-Packets are blocked because src/dst checks enabled. To fix this, disable these
+Packets are blocked because src/dst checks are enabled. To fix this, disable these
 checks on every host in AWS. 
 
 {{< img src="https://octetz.s3.us-east-2.amazonaws.com/aws-src-dst-check.png"

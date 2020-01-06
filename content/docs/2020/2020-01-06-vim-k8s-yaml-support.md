@@ -10,13 +10,13 @@ aliases:
 
 # Vim Kuberetes YAML Support
 
-Do you write a lot Kubernetes YAML manifests in vim? Have you also spent
+Do you write YAML manifests for Kubernetes in vim? Have you also spent
 countless time determining where in the spec a field belongs? Or perhaps you
-just want a quick reminder about the difference between `args` and `command`?
+want a quick reminder about the difference between `args` and `command`?
 Good news! You can easily link vim to the
 [yaml-language-server](https://github.com/redhat-developer/yaml-language-server)
 to get completion, validation and more. In this post we’ll explore how to setup
-a language server client to leverage this language server.
+a language server client to take advantage of this.
 
 {{< youtube eSAzGx34gUE >}}
 
@@ -24,10 +24,13 @@ a language server client to leverage this language server.
 
 Language servers provide programming language features to editors and IDEs by
 allowing communication over the Language Server Protocol (LSP). This approach is
-exciting as it enables 1 implementation to feed a multitude of editors and IDEs.
-I previously did a post on `gopls` the golang language server and how it can
-also be used in [vim](octetz.com/docs/2019/2019-04-24-vim-as-a-go-ide/). For
-Kubernetes YAML completion the flow is similar.
+exciting because it enables 1 implementation to feed a multitude of editors and
+IDEs.  I previously did a
+[post](https://octetz.com/docs/2019/2019-04-24-vim-as-a-go-ide) on
+[gopls](https://github.com/golang/tools/blob/master/gopls/doc/user.md) the
+golang language server and how it can also be used in
+[vim](octetz.com/docs/2019/2019-04-24-vim-as-a-go-ide/). For Kubernetes YAML
+completion the flow is similar.
 
 {{< img src="https://octetz.s3.us-east-2.amazonaws.com/lsp-kube-vim.png"
 class="center" width="600" >}}
@@ -37,7 +40,8 @@ I am aware of are
 [LanguageClient-neovim](https://github.com/autozimu/LanguageClient-neovim) and
 [coc.vim](https://github.com/autozimu/LanguageClient-neovim). In this post, I’ll
 be showing the coc.vim plugin as it is the most popular plugin at the time of
-this writing. You can install coc.vim using vim-plug.
+this writing. You can install coc.vim using
+[vim-plug](https://github.com/junegunn/vim-plug).
 
 ```txt
 " Use release branch (Recommend)
@@ -47,8 +51,8 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 ```
 
-To run coc (and eventually the yaml-language-server), you’ll also need node.js
-installed. You can install it as follows.
+To run coc (and eventually the yaml-language-server), you need node.js
+installed.
 
 ```bash
 curl -sL install-node.now.sh/lts | bash
@@ -102,7 +106,6 @@ configuration, which includes a golang configuration.
 `kubernetes` is a reserved field that tells the language server to load the
 Kubernetes schema URL from [this constant
 variable](https://github.com/redhat-developer/yaml-language-server/blob/18bd5693ef8a2aeb23e2172be481edc41809f718/src/server.ts#L32).
-.
 `yaml.schemas` can be expanded to add support for other schemas, [check out the
 schema association
 docs](https://github.com/redhat-developer/yaml-language-server#more-examples-of-schema-association)

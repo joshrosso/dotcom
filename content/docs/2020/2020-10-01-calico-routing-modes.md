@@ -327,7 +327,7 @@ Now routing between all pods works! Examining `worker-1`'s route table:
 src="https://octetz.s3.us-east-2.amazonaws.com/calico-route-table-ipip-crosssubnet.png"
 class="center" >}}
 
-The `tunl0` interface is reintroduced for routing to `worker-3`!
+The `tunl0` interface is reintroduced for routing to `worker-3`.
 
 ### VXLAN 
 

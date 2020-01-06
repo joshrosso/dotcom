@@ -198,7 +198,7 @@ packets as if they came directly from the pod. Since there is no encapsulation
 and de-capsulation overhead, direct is highly performant.
 
 To route directly, the [Calico IPPool]([IP
-pool](https://docs.projectcalico.org/v3.11/reference/resources/ippool#ip-pool-definition))
+pool](https://docs.projectcalico.org/v3.11/reference/resources/ippool#ip-pool-definition)
 must not have IP-in-IP enabled. 
 
 To modify the pool, download the default `ippool`. 

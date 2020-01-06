@@ -1,6 +1,6 @@
 ---
 title: Vim Kuberetes YAML Support
-weight: 9989
+weight: 9988
 description: Get Kubernetes resource autocompletion and validation in Vim.
 images:
 - https://octetz.s3.us-east-2.amazonaws.com/title-card-vim-k8s-support.png

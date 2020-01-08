@@ -26,7 +26,7 @@ how BGP compliments each.
 ## Example Architecture
 
 For this demonstration, I have setup the following architecture in AWS. The
-terraform is [here](TODO).  The Calico deployment is
+terraform is [here](https://github.com/octetz/calico-routing/blob/master/servers.tf).  The Calico deployment is
 [here](https://raw.githubusercontent.com/octetz/calico-routing/master/calico.yaml).
 
 {{< img src="https://octetz.s3.us-east-2.amazonaws.com/calico-aws-architecture.png" class="center" width="600">}}

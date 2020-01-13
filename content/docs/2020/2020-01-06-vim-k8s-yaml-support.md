@@ -163,9 +163,8 @@ exports.KUBERNETES_SCHEMA_URL = "https://raw.githubusercontent.com/instrumenta/k
 ```
 
 Depending on your version of `coc-yaml`, the variable's location may vary. Do
-note that I have changed the repo from `garethr` to `instrumenta`. I’m not sure
-of the history, but it appears `garethr` stopped producing schemas around
-`1.14.0` and `instrumenta` has carried it on since.
+note that I have changed the repo from `garethr` to `instrumenta`. It appears
+`garethr` has started maintaining the schemas in that repo.
 
 As a test, you can validate a field shows up that wasn’t previously available.
 For me, I can check for

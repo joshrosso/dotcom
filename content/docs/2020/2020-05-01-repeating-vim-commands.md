@@ -1,12 +1,12 @@
 ---
-title: Recording and Repeating Commands in VIM
+title: Recording and Repeating Commands in Vim
 weight: 9991
-description: Learn how to repeat sequences of VIM commands using macros.
+description: Learn how to repeat sequences of Vim commands using macros.
 images:
 - https://octetz.s3.us-east-2.amazonaws.com/recording-vim-commands-title-card.png
 ---
 
-# Recording and Repeating Commands in VIM
+# Recording and Repeating Commands in Vim
 
 Have you ever found yourself in an editor, repeating some mundane string
 manipulation task line after line? You're barely awake wondering if this is the

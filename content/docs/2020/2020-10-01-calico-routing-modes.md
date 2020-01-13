@@ -5,7 +5,6 @@ description: A deep dive into how routing in Calico works.
 images:
 - https://octetz.s3.us-east-2.amazonaws.com/title-card-calico-routing-modes.png
 aliases:
-  - /latest
 ---
 
 # Calico Routing Modes

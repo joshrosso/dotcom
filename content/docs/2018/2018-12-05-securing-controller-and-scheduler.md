@@ -1,7 +1,7 @@
 ---
 title: Securing Communication to Controller Manager and Scheduler
 weight: 10000
-
+date: 2018-12-05
 aliases:
   - /posts/secure-port-k8s-cm-sched
   - /posts/secure-port-k8s-cm-sched.html

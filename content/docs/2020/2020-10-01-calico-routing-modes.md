@@ -2,6 +2,7 @@
 title: Calico Routing Modes
 weight: 9989
 description: A deep dive into how routing in Calico works.
+date: 2020-01-19
 images:
 - https://octetz.s3.us-east-2.amazonaws.com/title-card-calico-routing-modes.png
 aliases:

@@ -1,6 +1,7 @@
 ---
 title: Network Policy in Kubernetes
 weight: 9995
+date: 2019-04-22
 aliases:
   - /posts/k8s-network-policy-apis
   - /posts/k8s-network-policy-apis.html

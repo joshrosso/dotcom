@@ -1,6 +1,7 @@
 ---
 title: 2019 US Kubecon
 weight: 9991
+date: 2019-11-22
 aliases:
   - /posts/k8s-kubecon-sd-review
   - /posts/k8s-kubecon-sd-review.html

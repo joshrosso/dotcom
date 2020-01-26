@@ -1,6 +1,7 @@
 ---
 title: Contour - Ingress with Envoy
 weight: 9996
+date: 2019-04-12
 aliases:
   - /posts/contour-adv-ing-and-delegation
   - /posts/contour-adv-ing-and-delegation.html

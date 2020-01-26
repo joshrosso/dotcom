@@ -1,6 +1,7 @@
 ---
 title: Vim as a Go IDE
 weight: 9994
+date: 2019-04-24
 aliases:
   - /posts/vim-as-go-ide
   - /posts/vim-as-go-ide.html

@@ -2,6 +2,7 @@
 title: Recording and Repeating Commands in Vim
 weight: 9991
 description: Learn how to repeat sequences of Vim commands using macros.
+date: 2020-01-05
 images:
 - https://octetz.s3.us-east-2.amazonaws.com/recording-vim-commands-title-card.png
 ---

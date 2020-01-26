@@ -1,7 +1,7 @@
 ---
 title: HA Control Plane with kubeadm
 weight: 9997
-
+date: 2019-03-26
 aliases:
   - /posts/ha-control-plane-k8s-kubeadm
   - /posts/ha-control-plane-k8s-kubeadm.html

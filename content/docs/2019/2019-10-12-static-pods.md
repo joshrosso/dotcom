@@ -1,5 +1,6 @@
 ---
 title: Kubernetes Static Pods
+date: 2019-10-12
 aliases:
   - /posts/k8s-static-pods
   - /posts/k8s-static-pods.html

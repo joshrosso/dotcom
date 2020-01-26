@@ -1,7 +1,7 @@
 ---
 title: Calico Route Refelctors
 weight: 9998
-
+date: 2018-12-10
 aliases:
   - /posts/rr-setup
   - /posts/rr-setup.html

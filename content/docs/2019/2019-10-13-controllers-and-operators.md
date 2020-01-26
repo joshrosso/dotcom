@@ -1,5 +1,6 @@
 ---
 title: Controllers and Operators
+date: 2019-10-13
 weight: 9992
 aliases:
   - /posts/k8s-controllers-vs-operators

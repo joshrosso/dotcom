@@ -1,6 +1,7 @@
 ---
 title: Local JDK Docs in an IDE
 weight: 9990
+date: 2019-11-29
 aliases:
   - /posts/loading-local-jdk-docs
   - /posts/loading-local-jdk-docs.html

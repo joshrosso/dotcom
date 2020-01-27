@@ -6,7 +6,7 @@
   {{ .Scratch.Set "BookSections" $bookSections }}
 {{ end }}
 
-
+<h1><u>Posts by date:</u></h1>
 {{ $sections := .Scratch.Get "BookSections" }}
 {{/* If there is only one section to render then render its children, else render all sections */}}
 {{ if eq (len $sections) 1 }} 
@@ -23,15 +23,12 @@
 
 {{ define "book-section" }}
 {{ with .Section }}
-  <li {{ if .Params.BookFlatSection }} class="book-section-flat" {{ end }}>
     {{ if .Content }}
-      {{ template "book-page-link" (dict "Page" . "CurrentPage" $.CurrentPage) }}
+      <h2>{{ template "book-page-link" (dict "Page" . "CurrentPage" $.CurrentPage) }}</h2>
     {{ else }}
-      <span>{{ partial "docs/title" . }}</span>
+      <h1 class="date-section"><span>{{ partial "docs/title" . }}</span></h1>
     {{ end }}
-
     {{ template "book-section-children" (dict "Section" . "CurrentPage" $.CurrentPage) }}
-  </li>
 {{ end }}
 {{ end }}
 
@@ -41,17 +38,20 @@
 
 {{ if or $ancestor (not $collapsed) }}
   {{ with .Section }}
-  <ul>
     {{ range where .Pages "Params.bookhidden" "!=" "true" }}
       {{ if eq .Kind "section" }}
-        {{ template "book-section" (dict "Section" . "CurrentPage" $.CurrentPage) }}
+        <h3>{{ template "book-section" (dict "Section" . "CurrentPage" $.CurrentPage) }}</h3>
       {{ else if and (eq .Kind "page") .Content }}
-        <li>
-        {{- template "book-page-link" (dict "Page" . "CurrentPage" $.CurrentPage) -}}
-        </li>
+        <div class="post-box">
+          <h1>{{- template "book-page-link" (dict "Page" . "CurrentPage" $.CurrentPage) -}}</h1>
+            <p>{{ .Date.Format "January 2, 2006" }}</p>
+          <div class="post-card">
+            <div class="desc"><p>{{ .Summary }}</p></div>
+            {{ if isset .Params "images" }}<div><img src="{{ index .Params.images 0 }}" aligh="right"></div>{{ end }}
+          </div>
+        </div>
       {{ end }}
     {{ end }}
-  </ul>
   {{ end }}
 {{ end }}
 

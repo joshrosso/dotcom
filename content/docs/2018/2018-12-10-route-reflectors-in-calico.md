@@ -13,7 +13,7 @@ Calico is a popular CNI plugin for Kubernetes. It leverages Border Gateway
 Protocol (BGP) for communicating routes available on nodes. This method fosters
 a highly scalable networking model between our workloads.
 
-{{< youtube gxzLrgsKhBw >}}
+{{< yblink gxzLrgsKhBw >}}
 
 ## The Case for Route Reflection
 
@@ -39,7 +39,7 @@ These connections can be surfaced by downloading
 `sudo calicoctl node status` on a node. The example below shows the output from
 `10.30.0.15` in our example.
 
-```bash
+```
 sudo calicoctl node status
 
 Calico process is running.
@@ -92,7 +92,7 @@ You may choose to taint these nodes to ensure other workloads don't run on them.
 
 List nodes in the cluster.
 
-```bash
+```
 kubectl get no -o wide
 
 NAME    STATUS   ROLES    AGE     VERSION   INTERNAL-IP
@@ -107,7 +107,7 @@ Let's choose `zyisy` and `rxgks` as our reflector nodes.
 
 Download `calicoctl` on the host.
 
-```bash
+```
 wget https://github.com/projectcalico/calicoctl/releases/download/v3.4.0/calicoctl-linux-amd64
 chmod +x calicoctl-linux-amd64
 sudo mv calicoctl-linux-amd64 /usr/local/bin/calicoctl
@@ -115,7 +115,7 @@ sudo mv calicoctl-linux-amd64 /usr/local/bin/calicoctl
 
 Export the `Node` resource of our chosen nodes to the local file system.
 
-```bash
+```
 calicoctl get node zyisy --export -o yaml > zyisy.yaml
 calicoctl get node rxgks --export -o yaml > rxgks.yaml
 ```
@@ -124,7 +124,7 @@ Edit each node to include a `spec.bgp.routeReflectorClusterID: 1.0.0.1` and a
 `metadata.labels.router-reflector: true`  An updated version of node `zyisy` is
 below.
 
-```bash
+```
 apiVersion: projectcalico.org/v3
 kind: Node
 metadata:
@@ -146,7 +146,7 @@ make an informed decision.
 
 Replace the existing `Node` resources with the updated ones.
 
-```bash
+```
 calicoctl replace -f zyisy.yaml
 Successfully replaced 1 'Node' resource(s)
 
@@ -168,7 +168,7 @@ dynamic detection of reflector nodes should peer with.
 Add the following node peering connection to ensure `calico/node` instance peer
 with the reflector instances.
 
-```yaml
+```
 kind: BGPPeer
 apiVersion: projectcalico.org/v3
 metadata:
@@ -180,7 +180,7 @@ spec:
 
 Add peering between the RouteReflectors themselves.
 
-```yaml
+```
 kind: BGPPeer
 apiVersion: projectcalico.org/v3
 metadata:
@@ -199,14 +199,14 @@ the reflectors they're configured to. This requires altering or adding a default
 Check for an existing config, if one exists, modify/replace the existing,
 otherwise follow steps to create a new one.
 
-```bash
+```
 calicoctl get bgpconfig default
 ```
 
 Create a `BGPConfiguration` with `nodeToNodeMeshEnabled: false` and an
 Autonomous System number (`asNumber`) of `63400`.
 
-```yaml
+```
 apiVersion: projectcalico.org/v3
 kind: BGPConfiguration
 metadata:
@@ -221,7 +221,7 @@ Your asNumber may vary based on other BGP configurations throughout your data ce
 
 On a non-reflector node, re-run `node status`.
 
-```bash
+```
 sudo calicoctl node status
 
 Calico process is running.

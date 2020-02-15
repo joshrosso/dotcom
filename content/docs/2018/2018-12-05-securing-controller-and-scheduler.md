@@ -14,7 +14,7 @@ I've been looking into interacting with the secure (tls) ports for the
 
 **Video Walkthrough:**
 
-{{< youtube dhPy3lWWhoU >}}
+{{< yblink dhPy3lWWhoU >}}
 
 Based on the [1.12
 changelog](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG-1.12.md),
@@ -38,7 +38,7 @@ secure serving on `10259` to the `kube-scheduler` is enabled:
 With the `kube-controller-manager` running, we can call the pod IP and verify
 `/healthz` is available.
 
-```bash
+```
 curl https://10.30.0.12:10257/healthz -k
 
 ok
@@ -46,7 +46,7 @@ ok
 
 When calling the `/metrics` endpoint, you'll get less satisfying results.
 
-```bash
+```
 curl https://10.30.0.12:10257/metrics -k
 
 Internal Server Error: "/metrics": subjectaccessreviews.authorization.k8s.io is forbidden: User "system:kube-controller-manager" cannot create resource "subjectaccessreviews" in API group "authorization.k8s.io" at the cluster scope
@@ -66,7 +66,7 @@ We want `kube-controller-manager` to delegate authorization decisions to
 `kube-controller-manager` must be bound to the existing `system:auth-delegator`
 `ClusterRole`.
 
-```yaml
+```
 kind: ClusterRoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
@@ -84,11 +84,11 @@ roleRef:
 After applying the `ClusterRoleBinding`, request the metrics endpoint. It will
 now show we cannot access the `/metrics` url.
 
-```bash
+```
 curl https://10.30.0.12:10257/metrics -k
 ```
 
-```json
+```
 {
   "kind": "Status",
   "apiVersion": "v1",
@@ -109,7 +109,7 @@ For this example, let's give default:default (`<namespace>:<service-account>`)
 access to the `/metrics` `nonResourceURLs`. Normally you'd be providing this
 access to a Prometheus service account.
 
-```yaml
+```
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
@@ -143,13 +143,13 @@ subjects:
 
 Retrieve the default:default token into an environment variable.
 
-```bash
+```
 TOKEN=$(kubectl describe secret $(kubectl get secrets -n default | grep ^default | cut -f1 -d ' ') | grep -E '^token' | cut -f2 -d':' | tr -d " ")
 ```
 
 Request the secure metrics endpoint again.
 
-```bash
+```
 curl https://10.30.0.12:10257/metrics --header "Authorization: Bearer $TOKEN" -k
 
 ...

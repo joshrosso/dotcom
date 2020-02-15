@@ -27,7 +27,7 @@ that supports it, these rules are enforced. However, the standard Kubernetes
 [Calico](https://www.projectcalico.org) and [Cilium](https://cilium.io) offer
 their own network policy CRDs. 
 
-{{< youtube pqYR7e3H4ME >}}
+{{< yblink pqYR7e3H4ME >}}
 
 ## Kubernetes NetworkPolicy
 
@@ -61,7 +61,7 @@ Consider the following manifest that allows `pod-a` to receive traffic from
 `pod-b` and egress to it. It is a **namespace-wide** policy due to the
 `spec.podSelector`.
 
-```yaml
+```
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
@@ -124,7 +124,7 @@ To limit the impact of a policy, the `spec.podSelector` can be set to `team-a`,
 re-opening all ingress and egress traffic for pods without the label `app:
 team-a`.
 
-```yaml
+```
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
@@ -148,7 +148,7 @@ administer your namespaces. An example of a blanket policy that restricts all
 ingress traffic to pods in a namespace but does not restrict egress is as
 follows.
 
-```yaml
+```
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
@@ -208,7 +208,7 @@ make an exception for `kube-system` by allowing all traffic to any namespace
 with the label `name: kube-system`. Namespaces do not have this label by
 default. The following command will add it.
 
-```yaml
+```
 kubectl label namespaces kube-system name=kube-system
 ```
 
@@ -217,7 +217,7 @@ Teams can add their own namespace-scoped policies to allow routes. Achieving
 "micro-segmentation". This is a great use case for `GlobalNetworkPolicy`.
 Consider the following CRD.
 
-```yaml
+```
 # This GlobalNetworkPolicy uses Calico's CRD 
 # (https://docs.projectcalico.org/v3.5/reference/calicoctl/resources/globalnetworkpolicy)
 apiVersion: projectcalico.org/v3
@@ -263,7 +263,7 @@ spec:
 
 Applying the above policy can be applied as follows.
 
-```bash
+```
 DATASTORE_TYPE=kubernetes \
     KUBECONFIG=~/.kube/config
     calicoctl apply -f global-deny-all.yaml 
@@ -282,7 +282,7 @@ needs. For example, if you wanted to open all egress traffic to `pod-a` in the
 `org-1` namespace, the following Kubernetes `NetworkPolicy` could be applied to
 the `org-1` namespace.
 
-```yaml
+```
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:

@@ -20,7 +20,7 @@ multi-purpose tool in 2019+. Traditionally, writing Go in Vim meant adding the
 Server Protocol](https://langserver.org) (LSP), there are new options worth
 exploring.
 
-{{< youtube T32yqetyy8s >}}
+{{< yblink T32yqetyy8s >}}
 
 ## The Past and The Present
 
@@ -42,7 +42,7 @@ vim-go `1.20` (April 22, 2019) introduced `gopls` support. Autocomplete now uses
 `gopls` by default. `vim-go` commands `:GoDef` and `:GoInfo` can also be set to
 use `gopls` if you add the following configuration.
 
-```vimrc
+```
 let g:go_def_mode='gopls'
 let g:go_info_mode='gopls'
 ```
@@ -103,7 +103,7 @@ In order to follow this setup, you need to complete following.
 
 1. Edit `init.vim`.
 
-    ```bash
+    ```
     vim ~/.config/nvim/init.vim
     ```
 
@@ -111,7 +111,7 @@ In order to follow this setup, you need to complete following.
 
 1. Add the `vim-go` plugin to the list of plugins managed by vim-plug.
 
-    ```vimrc
+    ```
     call plug#begin('~/.vim/plugged')
 
     " < Other Plugins, if they exist >
@@ -124,13 +124,13 @@ In order to follow this setup, you need to complete following.
 
 1. Run `PlugInstall` via Vim.
 
-    ```bash
+    ```
     vim +PlugInstall
     ```
 
     output:
 
-    ```txt
+    ```
     Updated. Elapsed time: 0.011105 sec.
     [=]
 
@@ -140,19 +140,19 @@ In order to follow this setup, you need to complete following.
 
 1. Run `GoInstallBinaries` via Vim.
 
-    ```bash
+    ```
     vim +GoInstallBinaries
     ```
 
 1. Verify tools are in $GOBIN.
 
-    ```bash
+    ```
     ls -la $GOBIN
     ```
 
     output:
 
-    ```txt
+    ```
     asmfmt
     errcheck
     fillstruct
@@ -180,7 +180,7 @@ In order to follow this setup, you need to complete following.
 
 1. Download a Go-based project.
 
-    ```bash
+    ```
     go get -d github.com/heptio/velero
     ```
 
@@ -188,13 +188,13 @@ In order to follow this setup, you need to complete following.
 
 1. Enter the project's directory.
 
-    ```bash
+    ```
     cd $GOPATH/src/github.com/heptio/velero
     ```
 
 1. Vim into a Go file.
 
-    ```bash
+    ```
     vim cmd/velero/main.go
     ```
 
@@ -211,14 +211,14 @@ In order to follow this setup, you need to complete following.
 
 1. Edit `init.vim`.
 
-    ```bash
+    ```
     vim ~/.config/nvim/init.vim
     ```
 
 1. Update your plugin list in `~/.config/nvim/init.vim` to contain the following. 
 
 
-    ```txt
+    ```
     call plug#begin('~/.vim/plugged')
 
     " < Other Plugins, if they exist >
@@ -230,7 +230,7 @@ In order to follow this setup, you need to complete following.
 
 1. Copy the following into your `init.vim`.
 
-    ```vimrc
+    ```
     " -------------------------------------------------------------------------------------------------
     " coc.nvim default settings
     " -------------------------------------------------------------------------------------------------
@@ -305,7 +305,7 @@ In order to follow this setup, you need to complete following.
 
 1. Copy the following to tell `vim-go` to not map `gd` as its shortcut for go to definition.
 
-    ```vimrc
+    ```
     " disable vim-go :GoDef short cut (gd)
     " this is handled by LanguageClient [LC]
     let g:go_def_mapping_enabled = 0
@@ -317,13 +317,13 @@ In order to follow this setup, you need to complete following.
 
 1. Install the `coc.nvim` plugin.
 
-    ```bash
+    ```
     vim +PlugInstall
     ```
 
     output:
 
-    ```txt
+    ```
     Updated. Elapsed time: 0.027422 sec.
     [==]
 
@@ -336,13 +336,13 @@ In order to follow this setup, you need to complete following.
 
 1. Verify `coc.nvim` is working by running CocInfo.
 
-    ```txt
+    ```
     :CocInfo
     ```
 
     output:
 
-    ```txt
+    ```
     ## versions
 
     vim version: NVIM v0.3.4
@@ -358,7 +358,7 @@ In order to follow this setup, you need to complete following.
 
 1. Edit the CocConfig.
 
-    ```txt
+    ```
     :CocConfig
     ```
 
@@ -367,7 +367,7 @@ In order to follow this setup, you need to complete following.
 
 1. Setup the following [languageserver](https://github.com/neoclide/coc.nvim/wiki/Language-servers) in your configuration.
 
-    ```json
+    ```
     {
       "languageserver": {
         "golang": {
@@ -410,12 +410,12 @@ can be accessed in Vim with the following commands.
 
 vim-go
 
-```txt
+```
 :help vim-go
 ```
 
 coc.nvim
 
-```txt
+```
 :help coc-nvim
 ```

@@ -115,7 +115,7 @@ pods to run in the Kubernetes cluster with no visibility via the API server. In
 this scenario, a kubelet reports logs similar to the following.
 
 
-```txt
+```
 Aug 12 01:45:41 192-168-122-170 kubelet[870]: E0812 01:45:41.314772     870 kubelet.go:1639] Failed creating a mirror pod for "nginx-static-192-168-122-170_default(301a236dba67940cb11c948b95e6aff3)": pods "nginx-static-192-168-122-170" is forbidden: unable to validate against any pod security policy: [spec.securityContext.hostNetwork: Invalid value: true: Host network is not allowed to be used spec.containers[0].hostPort: Invalid value: 80: Host port 80 is not allowed to be used. Allowed ports: []]
 ```
 
@@ -124,7 +124,7 @@ To resolve this, the group `system:nodes` should have access to a privileged
 PSP, allowing mirror pods of any form to be created via the kubelet.
 
 
-```yaml
+```
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding

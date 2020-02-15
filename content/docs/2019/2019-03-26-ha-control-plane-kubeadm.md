@@ -16,7 +16,7 @@ to copy certificates and keys among nodes relieving additional orchestration and
 complexity in the bootstrapping process. In this post we will dive into how it
 works.
 
-{{< youtube 27v36t-3afQ >}}
+{{< yblink 27v36t-3afQ >}}
 
 ## How It Works
 
@@ -50,7 +50,7 @@ namespace.
 Taking the example above, if we run the following command, it will result in the
 new diagram below.
 
-```bash
+```
 kubeadm init --experimental-upload-certs
 ```
 
@@ -73,7 +73,7 @@ would need to join a worker.
 To add another control plane (master) node, a user can run the following
 command.
 
-```bash
+```
 kubeadm join ${API_SERVER_PROXY_IP}:${API_SERVER_PROXY_PORT} \
     --experimental-control-plane \
     --certificate-key=${ENCRYPTION_KEY} \
@@ -109,19 +109,19 @@ production scenarios.
 
 1. Create the directory `/etc/nginx`.
 
-    ```bash
+    ```
     mkdir /etc/nginx
     ```
 
 1. Add and edit the file `/etc/nginx/nginx.conf`.
 
-    ```bash
+    ```
     vim /etc/nginx/nginx.conf
     ```
 
 1. Inside the file, add the following configuration.
 
-    ```nginx
+    ```
     events { }
 
     stream {
@@ -149,7 +149,7 @@ production scenarios.
 
 1. Start NGINX.
 
-    ```bash
+    ```
     docker run --name proxy \
         -v /etc/nginx/nginx.conf:/etc/nginx/nginx.conf:ro \
         -p 6443:6443 \
@@ -158,13 +158,13 @@ production scenarios.
 
 1. Verify you can reach NGINX at its address.
 
-    ```bash
+    ```
     curl 192.168.122.170
     ```
 
     output:
 
-    ```txt
+    ```
     curl: (52) Empty reply from server
     ```
 
@@ -180,19 +180,19 @@ production scenarios.
 
 1. Create the directory `/etc/kubernetes/kubeadm`
 
-    ```bash
+    ```
     mkdir /etc/kubernetes/kubeadm
     ```
 
 1. Create and edit the file `/etc/kubernetes/kubeadm/kubeadm-config.yaml`.
 
-    ```bash
+    ```
     vim /etc/kubernetes/kubeadm/kubeadm-config.yaml
     ```
 
 1. Add the following configuration.
 
-    ```yaml
+    ```
     apiVersion: kubeadm.k8s.io/v1beta1
     kind: ClusterConfiguration
     kubernetesVersion: stable
@@ -206,7 +206,7 @@ production scenarios.
 
 1. Initialize the cluster with `upload-certs` and `config` specified.
 
-    ```bash
+    ```
     kubeadm init \
         --config=/etc/kubernetes/kubeadm/kubeadm-config.yaml \
         --experimental-upload-certs
@@ -216,7 +216,7 @@ production scenarios.
 
     output:
 
-    ```txt
+    ```
     You can now join any number of the control-plane node running the following command on each as root:
 
     kubeadm join 192.168.122.170:6443 --token nmiqmn.yls76lcyxg2wt36c \
@@ -228,7 +228,7 @@ production scenarios.
 
 1. As your user, run the recommended kubeconfig commands for `kubectl` access.
 
-    ```bash
+    ```
     mkdir -p $HOME/.kube
     sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
     sudo chown $(id -u):$(id -g) $HOME/.kube/config
@@ -236,7 +236,7 @@ production scenarios.
 
 1. Examine the `kubeadm-cert` secret in the `kube-system` namespace.
 
-    ```bash
+    ```
     kubectl get secrets -n kube-system kubeadm-certs -o yaml
     ```
 
@@ -244,7 +244,7 @@ production scenarios.
 
 1. Under `ownerReferences`, examine the `name`.
 
-    ```txt
+    ```
     name: bootstrap-token-cwb9ra
     ```
 
@@ -252,13 +252,13 @@ production scenarios.
 
 1. List available tokens with `kubeadm`.
 
-    ```bash
+    ```
     kubeadm token list
     ```
 
     output:
 
-    ```
+    
     TOKEN                     TTL       EXPIRES                USAGES                   DESCRIPTION                                       
     cwb9ra.gegoj2eqddaf3yps   1h        2019-03-26T19:38:18Z   <none>                   Proxy for managing TTL for the kubeadm-certs secret
     nmiqmn.yls76lcyxg2wt36c   23h       2019-03-27T17:38:18Z   authentication,signing   <none>                                              
@@ -270,32 +270,32 @@ production scenarios.
 
 1. Install `calico` CNI-plugin with a pod CIDR matching the `podSubnet` configured above.
 
-    ```bash
+    ```
     kubectl apply -f https://gist.githubusercontent.com/joshrosso/ed1f5ea5a2f47d86f536e9eee3f1a2c2/raw/dfd95b9230fb3f75543706f3a95989964f36b154/calico-3.5.yaml
     ```
 
 1. Verify 1 node is `Ready`.
 
-    ```bash
+    ```
     kubectl get nodes
     ```
 
     output:
 
-    ```txt
+    ```
     NAME              STATUS   ROLES    AGE   VERSION
     192-168-122-160   Ready    master   79m   v1.14.0
     ```
 
 1. Verify `kube-system` pods are `Running`.
 
-    ```bash
+    ```
     kubectl get pods -n kube-system
     ```
 
     output:
 
-    ```txt
+    ```
     NAME                                      READY   STATUS    RESTARTS   AGE
     calico-node-mphpw                         1/1     Running   0          58m
     coredns-fb8b8dccf-c6s9q                   1/1     Running   0          80m
@@ -313,7 +313,7 @@ production scenarios.
 
 2. Run the recorded join command from the previous section.
 
-    ```bash
+    ```
     kubeadm join 192.168.122.170:6443 --token nmiqmn.yls76lcyxg2wt36c \
     --discovery-token-ca-cert-hash sha256:5efac16c86e5f2ed6b20c6dbcbf3a9daa5bf75aa604097dbf49fdc3d1fd5ff7d \
     --experimental-control-plane \
@@ -322,13 +322,13 @@ production scenarios.
 
 3. After completion, verify there are now 2 nodes.
 
-    ```bash
+    ```
     kubectl get nodes
     ```
 
     output:
 
-    ```txt
+    ```
     NAME              STATUS   ROLES    AGE   VERSION
     192-168-122-160   Ready    master   22m   v1.14.0
     192-168-122-161   Ready    master   34s   v1.14.0
@@ -336,13 +336,13 @@ production scenarios.
 
 4. Verify new pods have been created.
 
-    ```bash
+    ```
     kubectl get pods -n kube-system
     ```
 
     output:
 
-    ```txt
+    ```
     NAME                                      READY   STATUS    RESTARTS   AGE
     calico-node-cq5nt                         1/1     Running   0          60s
     calico-node-spn5w                         1/1     Running   0          13m
@@ -368,13 +368,13 @@ when the Kubernetes cluster is already running.
 
 1. On an existing master, list all tokens.
 
-    ```bash
+    ```
     kubeadm token list
     ```
 
 1. Delete all existing tokens.
 
-    ```bash
+    ```
     kubeadm token delete cwb9ra.gegoj2eqddaf3yps
     kubeadm token delete nmiqmn.yls76lcyxg2wt36c
     ``` 
@@ -385,13 +385,13 @@ when the Kubernetes cluster is already running.
 
 1. Create a new token with a 10 minute TTL.
 
-    ```bash
+    ```
     kubeadm token create --ttl 10m --print-join-command
     ```
 
     output:
 
-    ```bash
+    ```
     kubeadm join 192.168.122.170:6443 \
         --token xaw58o.0fjg0xp0ohpucwhr \
         --discovery-token-ca-cert-hash sha256:5efac16c86e5f2ed6b20c6dbcbf3a9daa5bf75aa604097dbf49fdc3d1fd5ff7d 
@@ -401,13 +401,13 @@ when the Kubernetes cluster is already running.
 
 1. Run the `upload-certs` phase of `kubeadm init`.
 
-    ```bash
+    ```
     kubeadm init phase upload-certs --experimental-upload-certs
     ```
 
     output:
 
-    ```txt
+    ```
     [upload-certs] Storing the certificates in ConfigMap "kubeadm-certs" in the "kube-system" Namespace
     [upload-certs] Using certificate key:
     9555b74008f24687eb964bd90a164ecb5760a89481d9c55a77c129b7db438168
@@ -417,7 +417,7 @@ when the Kubernetes cluster is already running.
 
 1. Use the outputs from the previous steps to run a control-plane join command.
 
-    ```bash
+    ```
     kubeadm join 192.168.122.170:6443 \
         --experimental-control-plane \
         --certificate-key 9555b74008f24687eb964bd90a164ecb5760a89481d9c55a77c129b7db438168 \
@@ -427,13 +427,13 @@ when the Kubernetes cluster is already running.
 
 3. After completion, verify there are now 3 nodes.
 
-    ```bash
+    ```
     kubectl get nodes
     ```
 
     output:
 
-    ```txt
+    ```
     NAME              STATUS   ROLES    AGE     VERSION
     192-168-122-160   Ready    master   50m     v1.14.0
     192-168-122-161   Ready    master   28m     v1.14.0

@@ -19,7 +19,7 @@ Good news! You can easily link vim to the
 to get completion, validation and more. In this post we’ll explore how to setup
 a language server client to take advantage of this.
 
-{{< youtube eSAzGx34gUE >}}
+{{< yblink eSAzGx34gUE >}}
 
 ## Language Server
 
@@ -44,7 +44,7 @@ be showing the coc.vim plugin as it is the most popular plugin at the time of
 this writing. You can install coc.vim using
 [vim-plug](https://github.com/junegunn/vim-plug).
 
-```txt
+```
 " Use release branch (Recommend)
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
@@ -55,13 +55,13 @@ Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 To run coc (and eventually the yaml-language-server), you need node.js
 installed.
 
-```bash
+```
 curl -sL install-node.now.sh/lts | bash
 ```
 
 With coc.vim setup, install the coc-yaml server extension from within vim.
 
-```txt
+```
 :CocInstall coc-yaml
 ```
 
@@ -80,14 +80,14 @@ In order for coc to use the yaml-language-server, you must tell it to load the
 Kubernetes schema when editing YAML files. You can do this by modifying the
 coc-config.
 
-```txt
+```
 :CocConfig
 ```
 
 In the config file, add `kubernetes` for all `yaml` files. Below you can see my
 configuration, which includes a golang configuration.
 
-```json
+```
 {
   "languageserver": {
       "golang": {
@@ -139,11 +139,11 @@ to modify if you know where the `server.ts` file lives.
 To determine where it is installed on your machine, simply open up a YAML file
 with vim and check your processes for `yaml-language-server`.
 
-```bash
+```
 ps aux | grep -i yaml-language-server
 ```
 
-```txt
+```
 joshrosso         2380  45.9  0.2  5586084  69324   ??  S     9:32PM   0:00.43 /usr/local/Cellar/node/13.5.0/bin/node /Users/joshrosso/.config/coc/extensions/node_modules/coc-yaml/node_modules/yaml-language-server/out/server/src/server.js --node-ipc --node-ipc --clientProcessId=2379
 joshrosso         2382   0.0  0.0  4399352    788 s001  S+    9:32PM   0:00.00 grep -i yaml-language-server
 ```
@@ -156,7 +156,7 @@ As you can see, mine is located at
 You can edit the file and update the `KUBERNETES_SCHEMA_URL` variable to, for
 example, 1.17.0.
 
-```javascript
+```
 // old 1.14.0 schema
 //exports.KUBERNETES_SCHEMA_URL = "https://raw.githubusercontent.com/garethr/kubernetes-json-schema/master/v1.14.0-standalone-strict/all.json";
 // new 1.17.0 schema in instrumenta repo

@@ -21,7 +21,7 @@ traffic; it is part, but Calico may also leverage
 routing. In this post, I’ll attempt to explain the routing options of Calico and
 how BGP compliments each.
 
-{{< youtube MpbIZ1SmEkU >}}
+{{< yblink MpbIZ1SmEkU >}}
 
 ## Example Architecture
 
@@ -44,7 +44,7 @@ follows.
 
 These are consistent with the node names in my Kubernetes cluster.
 
-```txt
+```
 NAME       STATUS   ROLES    AGE     VERSION
 master     Ready    master   6m55s   v1.17.0
 worker-1   Ready    <none>   113s    v1.17.0
@@ -58,7 +58,7 @@ Pods are deployed with manifests for
 and
 [pod-3](https://raw.githubusercontent.com/octetz/calico-routing/master/pod-3.yaml).
 
-```txt
+```
 NAME    READY   STATUS    RESTARTS   AGE     NODE
 pod-1   1/1     Running   0          4m52s   worker-1
 pod-2   1/1     Running   0          3m36    worker-2
@@ -88,7 +88,7 @@ and peering with BGP-capable routers. Using
 [calicoctl](https://docs.projectcalico.org/v3.11/getting-started/calicoctl/install#about-installing-calicoctl),
 you can view nodes sharing routes. 
 
-```bash 
+``` 
 $ sudo calicoctl node status 
 
 Calico process is running.
@@ -115,7 +115,7 @@ Each host IP represents a node this host is peering with. This was run on
 
 Once routes are shared, Felix programs a host's route table as follows. 
 
-```bash
+```
 # run on master
 $ route -n
 
@@ -164,7 +164,7 @@ class="center" width="600" >}}
 
 In IP-in-IP mode, `worker-1`'s route table is as follows. 
 
-```bash
+```
 # run on worker-1
 sudo route
 ```
@@ -175,7 +175,7 @@ class="center" >}}
 
 Below is a packet sent from pod-1 to pod-2.
 
-```txt
+```
 # sent from inside pod-1
 curl 192.168.133.194
 ```
@@ -203,13 +203,13 @@ must not have IP-in-IP enabled.
 
 To modify the pool, download the default `ippool`. 
 
-```bash 
+``` 
 calicoctl get ippool default-ipv4-ippool -o yaml > ippool.yaml 
 ``` 
 
 Disable IP-in-IP by setting it to `Never`. 
 
-```yaml 
+``` 
 apiVersion: projectcalico.org/v3
 kind: IPPool
 metadata:
@@ -227,13 +227,13 @@ spec:
 
 Apply the change.
 
-```bash 
+``` 
 calicoctl apply -f ippool.yaml 
 ``` 
 
 On `worker-1`, the route table is updated.
 
-```bash
+```
 route -n
 ``` 
 
@@ -250,7 +250,7 @@ class="center" >}}
 
 With direct routing, requests from `pod-1` to `pod-2` fail.
 
-```bash
+```
 # sent from pod-1
 $ curl -v4 192.168.133.194 --max-time 10
 
@@ -270,7 +270,7 @@ class="center" width="600" >}}
 Traffic is now routable between `pod-1` and `pod-2`. The wireshark output is as
 follows.
 
-```bash 
+``` 
 curl -v4 192.168.133.194
 ``` 
 
@@ -280,7 +280,7 @@ class="center" >}}
 
 However, communication between `pod-1` and `pod-3` now fails. 
 
-```bash
+```
 # sent from pod-1 
 $ curl 192.168.97.193 --max-time 10
 
@@ -303,7 +303,7 @@ class="center" width="600" >}}
 
 To enable this, update the IPPool as follows.
 
-```yaml 
+``` 
 apiVersion: projectcalico.org/v3
 kind: IPPool
 metadata:
@@ -317,7 +317,7 @@ spec:
   vxlanMode: Never
 ``` 
 
-```bash 
+``` 
 calicoctl apply -f ippool.yaml 
 ``` 
 
@@ -348,7 +348,7 @@ the [Calico manifest](https://docs.projectcalico.org/v3.11/manifests/calico.yaml
 
 1. Set the `backend` to `vxlan`.
 
-```yaml 
+``` 
 kind: ConfigMap 
 apiVersion: v1 
 metadata: 
@@ -363,7 +363,7 @@ data:
 
 2. Set the `CALICO_IPV4_IPIP` pool to `CALICO_IPV4_VXLAN`.
 
-```yaml
+```
             # Enable VXLAN
             - name: CALICO_IPV4POOL_VXLAN
               value: "Always"
@@ -372,7 +372,7 @@ data:
 
 4. Disable BGP-related liveness and readiness checks. 
 
-```yaml 
+``` 
 livenessProbe:
   exec:
     command:
@@ -395,7 +395,7 @@ readinessProbe:
 
 Then apply the modified configuration. 
 
-```bash 
+``` 
 kubectl apply -f calico.yaml 
 ``` 
 

@@ -19,7 +19,7 @@ traverse through various classes and functions. Instead, when I hit the
 JavaDocs and set it up in Intellij.  While these examples focus on Intellij, you
 may find this information useful for your own IDE.
 
-{{< youtube FfnTR9Gv9Gc >}}
+{{< yblink FfnTR9Gv9Gc >}}
 
 ## Set Remote Documentation URL
 
@@ -85,15 +85,15 @@ First, you'll want to find a good location to store the docs. I unzipped them in
 my `$JAVA_HOME`, located at `/usr/lib/jvm/java-13-jdk`. Unzipping places files
 in a `docs` directory, which is perfect for me.
 
-```bash
+```
 unzip ~/Downloads/jdk-13.0.1_doc-all.zip -d /usr/lib/jvm/java-13-jdk
 ```
 
-```bash
+```
 ls -l /usr/lib/jvm/java-13-jdk
 ```
 
-```txt
+```
 4096 Nov 29 20:34 .
 4096 Nov 29 17:57 ..
 4096 Nov 29 17:59 bin

@@ -16,7 +16,7 @@ supports advanced ingress functionality with its
 Custom Resource Definition (CRD). We'll explore some common ingress needs such
 as weighted load balancing and cover how multi-team ingress can be facilitated.
 
-{{< youtube O7HfkgzD7Z0 >}}
+{{< yblink O7HfkgzD7Z0 >}}
 
 ## How Contour Works
 
@@ -44,7 +44,7 @@ tell a controller (such as NGINX or HAProxy) how to route traffic to pods. An
 example manifest that exposes a ping service for requests at `ping.octetz.com`
 is as follows.
 
-```yaml
+```
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
@@ -99,7 +99,7 @@ set within a cluster. When more advanced use cases such as the canary deployment
 described above are presented, the IngressRoute can be easily leveraged. An
 example of this weighting is as follows.
 
-```yaml
+```
 apiVersion: contour.heptio.com/v1beta1
 kind: IngressRoute
 metadata:
@@ -166,7 +166,7 @@ created referencing the FQDN `mountains.octetz.com`, the route is not created.
 
 An example of this Mountains delegation rule is as follows.
 
-```yaml
+```
 apiVersion: contour.heptio.com/v1beta1
 kind: IngressRoute
 metadata:
@@ -185,7 +185,7 @@ spec:
 Subsequently, when the IngressRoute is created for `mountains` in the
 `mountains` namespace, it will feature a simpler structure, as follows.
 
-```yaml
+```
 apiVersion: contour.heptio.com/v1beta1
 kind: IngressRoute
 metadata:
@@ -246,7 +246,7 @@ IngressRoutes must also prefix the secret name with the namespace it is stored
 (not represented in the diagram above). An example delegation object is as
 follows.
 
-```yaml
+```
 apiVersion: contour.heptio.com/v1beta1
 kind: TLSCertificateDelegation
 metadata:
@@ -262,7 +262,7 @@ spec:
 
 The IngressRoute referencing this secret (from the `mountains` namespace) would look as follows.
 
-```yaml
+```
 apiVersion: contour.heptio.com/v1beta1
 kind: IngressRoute
 metadata:

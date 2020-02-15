@@ -6,7 +6,7 @@ body {
 
   @media (prefers-color-scheme: dark) {
     background: #292929;
-    color: #fff;
+    color: #eeeeee;
     a {
       color: hotpink;
     }

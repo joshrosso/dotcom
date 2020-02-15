@@ -3,45 +3,24 @@
 
 <head>
   {{ partial "docs/html-head" . }}
-  {{ partial "docs/inject/head" . }}
   {{ template "_internal/twitter_cards.html" . }}
 </head>
 
 <body>
-  <main class="title-bar">
-    <div class="container">
-      <div class="header-wrapper">
-        <div class="octetz-logo">
-          <img class="logo" src="/images/logo.png">
-          <div class="nav-links">
-          <a href="https://octetz.com/docs">Posts</a> | <a href="https://octetz.com/contact">Contact</a>
-          | <a href="https://youtube.com/octetz"><img class="social" src="/images/youtube.svg"></a>
-          | <a href="https://octetz.com/rss"><img class="social" src="/images/rss.svg"></a>
-          | <a href="https://twitter.com/octetzsite"><img class="social" src="/images/twitter.svg"></a>
-         </div>
-        </div>
-      </div>
-    </div>
-  </main>
-  <main class="flex container">
+    <div class="content">
+<pre class="logo">
+ ■ ■   ■ ■ ■  ■ ■ ■  ■ ■ ■  ■ ■ ■  ■ ■ ■
+■   ■  ■      ■ ■ ■  ■ ■    ■ ■ ■     ■  
+■   ■  ■        ■    ■        ■     ■    
+ ■ ■   ■ ■ ■    ■    ■ ■ ■    ■    ■ ■ ■
+</pre>
+          <a href="/docs">posts</a> | <a href="/rss">rss</a> | <a href="https://youtube.com/octetz">youtube</a> | <a href="https://twitter.com/joshrosso">twitter</a> | <a href="/contact">contact</a>
 
-  <input type="checkbox" class="hidden" id="menu-control" />
+  <hr>
 
-    <!--<aside class="book-menu fixed">
-      {{ partial "docs/menu" . }}
-    </aside>-->
-
-    <div class="book-page">
-      {{ partial "docs/mobile-header" . }}
-      {{ template "main" . }}
-      {{ partial "docs/footer" . }}
-      {{ partial "docs/inject/footer" . }}
+    {{ template "main" . }}
     </div>
 
-    {{ template "toc" . }}
-  </main>
-
-  {{ partial "docs/inject/body" . }}
 </body>
 
 </html>

@@ -1,0 +1,33 @@
+body {
+  background: #fff;
+  a {
+    color: #6d9718;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    background: #292929;
+    color: #fff;
+    a {
+      color: hotpink;
+    }
+  }
+}
+
+img {
+  max-width: 100%;
+}
+
+div.content {
+  display: block;
+  max-width: 800px;
+}
+
+pre, code {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.logo {
+  margin: .5rem 0;
+  font-size: .5rem;
+}

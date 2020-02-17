@@ -266,6 +266,39 @@ will be encrypted.
     64 bytes from lax02s23-in-f14.1e100.net time=753 ms
     ```
 
+**After the steps above, I always start sshd (included in the archiso) and
+finish the installation process from another computer. This enable me to have
+access to copy and paste, editors, and browsers rather than the restricted
+terminal on my target machine. This is optional, but the two steps below may
+make your experience better.**
+
+1. Set a root passwd for archiso.
+
+    ```
+    passwd
+    ```
+
+1. Enable `sshd`.
+
+    ```
+    systemctl start sshd
+    ```
+
+    {{< img src="https://octetz.s3.us-east-2.amazonaws.com/linux-windows-install/ssh-install.png" width="600" >}}
+
+1. Determine your local address using `ip a`.
+
+1. From another machine, ssh in.
+
+    ```
+    ssh root@${TARGET_MACHINE_IP}
+    ```
+
+    {{< img src="https://octetz.s3.us-east-2.amazonaws.com/linux-windows-install/in-other-machine.png" width="600" >}}
+
+    > From this point forward, I'm completing the installation from another
+    > Linux desktop. You can also use Windows (putty) or Mac.
+
 ### Disk Partitioning
 
 1. List block devices to determine the name of the drive.

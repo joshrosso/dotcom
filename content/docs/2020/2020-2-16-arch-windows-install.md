@@ -1,7 +1,7 @@
 ---
 title: Arch Linux and Windows 10 (UEFI + Encrypted) Install Guide
 weight: 9987
-description: Get Kubernetes resource autocompletion and validation in Vim.
+description: How I setup my personal/work machines with Linux + Windows using UEFI and fully encrypting both partitions.
 date: 2020-02-16
 images:
 - https://octetz.s3.us-east-2.amazonaws.com/title-card-arch-windows-install.png

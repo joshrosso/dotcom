@@ -269,7 +269,7 @@ will be encrypted.
 **After the steps above, I always start sshd (included in the archiso) and
 finish the installation process from another computer. This enables me to have
 access to copy and paste, editors, and browsers rather than the restricted
-terminal on my target machine. This is optional, but the two steps below may
+terminal on my target machine. This is optional, but the steps below may
 make your experience better.**
 
 1. Set a root passwd for archiso.

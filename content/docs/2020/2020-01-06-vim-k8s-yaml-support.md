@@ -5,8 +5,6 @@ description: Get Kubernetes resource autocompletion and validation in Vim.
 date: 2020-01-06
 images:
 - https://octetz.s3.us-east-2.amazonaws.com/title-card-vim-k8s-support.png
-aliases:
-  - /latest
 ---
 
 # Vim Kuberetes YAML Support

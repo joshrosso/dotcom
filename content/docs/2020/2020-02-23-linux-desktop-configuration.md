@@ -4,25 +4,25 @@ weight: 9986
 description: How I configure my Linux desktop environment directly after an install.
 date: 2020-02-23
 images:
-- https://octetz.s3.us-east-2.amazonaws.com/title-card-arch-windows-install.png
+- https://octetz.s3.us-east-2.amazonaws.com/linux-desktop-configuration/title-card.png
 aliases:
   - /latest
 ---
 
 # Linux Desktop Configuration
 
-[In my previous post](../2020-2-16-arch-windows-install), I covered installation of Linux, Windows, and the
-encryption of the two operating systems. In this post, I'll be building on the
-Linux installation by describing how I bootstrap my desktop environment.  I
-fully wipe my machine approximately every 2 months. I do this to keep things
-clean and also ensure I'm not putting myself in a position where I cannot
-reproduce my desktop environment. It is easy, especially with Arch Linux, to fall
-into a trap where you've tuned and customized everything so much, the idea of
-reformatting is frightening. However, as you'll see in this post, with some
-simple automation, you can ensure [fairly] consistent desktop environments
-across installs.
+[In my previous post](../2020-2-16-arch-windows-install), I covered installation
+of Linux, Windows, and encryption of the two operating systems. In this
+post, I'll be building on the Linux installation by describing how I bootstrap
+my desktop environment.  I fully wipe my machine approximately every 2 months. I
+do this to keep things clean and also ensure I'm not putting myself in a
+position where I cannot reproduce my desktop environment. It is easy, especially
+with Arch Linux, to fall into a trap where you've tuned and customized
+everything so much, the idea of reformatting is frightening. However, as you'll
+see in this post, with some simple automation, you can ensure [fairly]
+consistent desktop environments across installs.
 
-{{< yblink ybvwikNlx9I >}}
+{{< yblink Q_3vc-u01Bw >}}
 
 ## Setup
 
@@ -39,11 +39,11 @@ are a few key ones.
 * install-wm
   * Compiles and installs my fork of [dwm](https://dwm.suckless.org).
 * install-terminal
-  * Compiles and installs st [st](https://st.suckless.org).
+  * Compiles and installs [st](https://st.suckless.org).
 
 The rest of this post details how the automation works and what I install. I'm
 sharing this process to help others create automation for their own
-reproduce Abel desktop installs. If
+reproducible desktop installs. If
 those details don't interest you, clone the repo and try the
 Makefile for yourself.
 
@@ -61,7 +61,7 @@ For official packages, the script calls a pacman install command as follows.
 pacman -Sy --needed $(<packages-official.txt)
 ```
 
-The `needed` flag will check whether an up to date version of the package
+The `needed` flag will check whether an up-to-date version of the package
 pre-exists, which makes the command idempotent.
 
 A simple list of all packages is maintained in `packages-official.txt`.
@@ -115,16 +115,16 @@ ttf-hack
 ttf-inconsolata
 volumeicon
 xf86-video-intel
-xfce
+xfce4
 xorg
 xorg-xinit
 yarn
 ```
 
 The above is my master list, which I've committed to retaining after every
-reinstall. I prefer to maintain this list over time, rather than trying to keep
+re-install. I prefer to maintain this list over time, rather than trying to keep
 it constantly updated with packages on my machine. The reason is, over time I
-install many package I end up not using, so after each reinstall, I lose (and
+install many package I end up not using, so after each re-install, I lose (and
 forget about) any packages not persisted in this list.
 
 If you'd like to query pacman to get your current package list, run the
@@ -174,7 +174,7 @@ only 2 "packages" I compile and install manually. Those are:
 * [dwm](https://dwm.suckless.org): Window manager
 * [st](https://st.suckless.org): Terminal
 
-The reason I don't use pacman or AUR to install these packages is they required
+The reason I don't use pacman or AUR to install these packages is they require
 changes to source (C code) to make configuration changes. This means every
 change requires a recompilation and moving of binaries to the system's path. On
 [octetz/linux-desktop](https://github.com/octetz/linux-desktop), you'll find
@@ -183,11 +183,11 @@ the st and dwm directories to update each.
 
 ## Configuration
 
-Configuration is a bunch of loose end I tie up, this includes:
+Configuration is a bunch of loose ends I tie up, this includes:
 
 * Copying dotfiles
 * Enabling certain systemd units
-* Create symlinks
+* Creating symlinks
 
 This is primarily accomplished with some ugly, but functional, shell scripts.
 
@@ -196,10 +196,10 @@ This is primarily accomplished with some ugly, but functional, shell scripts.
 
 ## Window Manager and Desktop Initialization
 
-For window management, I use `xfce` (windowed) and `dwm` (tiling). Based on the
+For window management, I use `xfce` (floating) and `dwm` (tiling). Based on the
 steps described above, everything is in place to start the desktop. One of the
-key dotfiles copied over is the `.xinitrc`, which instructs how to start up
-processes and the window manager when running `startx`.
+key dotfiles copied over is the `.xinitrc`, which instructs what processes
+(including window managers) to start when running `startx`.
 
 The `.xinitrc` typically looks as follows.
 
@@ -220,7 +220,7 @@ In the above, there are 2 essential commands for my desktop.
     screen sharing. More trivially, you also need a compositor to allow for
     transparency of windows.
   * The configuration for the compositor is stored in
-    `~/.config/picom/picom.conf`, which I also keep stored in my github repo.
+    `~/.config/picom/picom.conf`, which I also keep stored in my GitHub repo.
 
 * exec startxfce4
   * This starts the window manager.
@@ -229,9 +229,13 @@ In the above, there are 2 essential commands for my desktop.
 
 ## Updating
 
-Over time, it's helpful to copy a machines local dotfiles over and commit them
+Over time, it's helpful to copy a machine's local dotfiles over and commit them
 via git for a future install. While you could also setup a process to update the
-package list, I choose not to do this. Similar to the configure step that copies
-everything from git into the local system. The update setup copies all local
-dotfiles into the git repo, and let's the git history determine what has changed
-and should be committed.
+package list, I choose not to do this. The update command copies all local
+dotfiles into the git repo, and allows the git history determine what has
+changed and potentially committed.
+
+## Summary
+
+With that, you now have a desktop environment! I hope you found this post
+interesting and [checkout the video](https://youtu.be/Q_3vc-u01Bw) to see it in action!

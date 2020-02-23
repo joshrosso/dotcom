@@ -79,4 +79,11 @@ p {
   margin: 2rem 0;
 }
 
+ul.posts {
+  padding-left: 0;
 
+  li {
+    margin-left: 1rem;
+    margin-bottom: .3rem;
+  }
+}

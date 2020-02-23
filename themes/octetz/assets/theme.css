@@ -1,12 +1,13 @@
 body {
   background: #fff;
+  font-family: hack-regular;
   color: #1a1a1a;
   a {
     color: #6d9718;
   }
 
   @media (prefers-color-scheme: dark) {
-    background: #292929;
+    background: #000;
     color: #eeeeee;
     a {
       color: hotpink;
@@ -19,9 +20,9 @@ img {
 }
 
 div.content {
+  margin: 0 auto;
   display: block;
   max-width: 1000px;
-  margin-bottom: 6rem;
 }
 
 pre {

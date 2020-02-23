@@ -5,8 +5,6 @@ description: How I setup my personal/work machines with Linux + Windows using UE
 date: 2020-02-16
 images:
 - https://octetz.s3.us-east-2.amazonaws.com/title-card-arch-windows-install.png
-aliases:
-  - /latest
 ---
 
 # Arch Linux and Windows 10 (UEFI + Encrypted) Install Guide

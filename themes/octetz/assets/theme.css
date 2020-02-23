@@ -1,7 +1,7 @@
 body {
   background: #fff;
-  font-family: hack-regular;
   color: #1a1a1a;
+  font-family: 'Roboto', ;
   a {
     color: #6d9718;
   }
@@ -66,10 +66,12 @@ blockquote {
 }
 
 h1 {
+  font-family: 'Lacquer', ;
   font-size: 2.5rem;
 }
 
 h2, h3, h4 {
+  font-family: 'Lacquer', ;
   margin-top: 4.5rem;
 }
 

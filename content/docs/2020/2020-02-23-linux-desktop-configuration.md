@@ -4,7 +4,7 @@ weight: 9986
 description: How I configure my Linux desktop environment directly after an install.
 date: 2020-02-23
 images:
-- https://octetz.s3.us-east-2.amazonaws.com/linux-desktop-configuration/title-card.png
+- https://octetz.s3.us-east-2.amazonaws.com/linux-desktop-config/title-card.png
 aliases:
   - /latest
 ---

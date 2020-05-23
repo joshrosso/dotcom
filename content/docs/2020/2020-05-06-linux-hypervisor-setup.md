@@ -4,7 +4,7 @@ weight: 9986
 description: How I configure my Linux desktop environment directly after an install.
 date: 2020-05-06
 images:
-- https://octetz.s3.us-east-2.amazonaws.com/running-a-minimal-hypervisor/kvm-stack.png
+- https://octetz.s3.us-east-2.amazonaws.com/running-a-minimal-hypervisor/title-card.png
 aliases:
   - /latest
 ---
@@ -19,12 +19,12 @@ to turn an old laptop or desktop into a screaming hypervisor. This way you can
 laugh at all your friends with their $10,000 homelab investment while
 you're getting all the same goodness on commodity hardware :).
 
+{{< youtube HfNKpT2jo7U >}}
+
 This setup is what I use day-to-day to create Kubernetes environments in a
 simple, manageable way without too many abstractions getting in my way. If
 understanding and running VMs on Linuxs hosts interests you, this post is for
 you!
-
-{{< youtube HfNKpT2jo7U >}}
 
 ## Tools
 

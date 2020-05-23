@@ -24,6 +24,8 @@ simple, manageable way without too many abstractions getting in my way. If
 understanding and running VMs on Linuxs hosts interests you, this post is for
 you!
 
+{{< youtube HfNKpT2jo7U >}}
+
 ## Tools
 
 KVM, ESXi, Hyper-V, qemu, xen....what's the deal? You're not short of options in

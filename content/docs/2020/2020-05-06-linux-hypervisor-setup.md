@@ -1,7 +1,7 @@
 ---
 title: Linux Hypervisor Setup (libvirt/qemu/kvm)
 weight: 9986
-description: How I configure my Linux desktop environment directly after an install.
+description: Let's explore how you can setup a hypervisor on any Linux host! We'll dig into the libvirt/qemu/kvm stack with a focus on how these pieces interact with each other.
 date: 2020-05-06
 images:
 - https://octetz.s3.us-east-2.amazonaws.com/running-a-minimal-hypervisor/title-card.png

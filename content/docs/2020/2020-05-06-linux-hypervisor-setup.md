@@ -6,7 +6,6 @@ date: 2020-05-06
 images:
 - https://octetz.s3.us-east-2.amazonaws.com/running-a-minimal-hypervisor/title-card.png
 aliases:
-  - /latest
 ---
 
 # Linux Hypervisor Setup (libvirt/qemu/kvm)

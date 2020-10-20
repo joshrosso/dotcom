@@ -257,7 +257,7 @@ Next you should consider the hostname. This value is stored in `/etc/hostname` a
 5. Enable the unit to ensure it's evaluated on start up.
 
     ```
-    systemd enable hostname-init
+    systemctl enable hostname-init
     ```
 
 6. Remove the host's hostname.

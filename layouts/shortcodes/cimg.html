@@ -1,0 +1,9 @@
+{{ if .IsNamedParams }}
+    <a href="{{ .Get `src` }}" target="octetz-img">
+      <center>
+    <img {{ if .Get `class` }}class="{{ .Get `class` }}"{{ end }} src="{{ .Get `src` }}" {{ if .Get `width` }}width="{{ .Get `width` }}"{{ end }} {{ if .Get `alt` }}alt="{{ .Get `alt` }}"{{ end }}>
+      </center>
+    </a>
+{{ else }}
+<img src="{{.Get 0}}" alt="">
+{{ end }}

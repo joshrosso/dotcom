@@ -6,6 +6,7 @@ date: 2020-11-13
 images:
 - https://octetz.s3.us-east-2.amazonaws.com/vm-net/title-card.png
 aliases:
+- /latest
 ---
 
 # VM Networking ( Libvirt / Bridge )

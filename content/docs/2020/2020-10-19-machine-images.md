@@ -6,7 +6,6 @@ date: 2020-10-19
 images:
 - https://octetz.s3.us-east-2.amazonaws.com/machine-images/title-card.png
 aliases:
-- /latest
 ---
 
 # Preparing Machine Images for qemu/KVM

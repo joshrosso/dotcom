@@ -2,6 +2,7 @@ body {
   background: #fff;
   color: #1a1a1a;
   font-family: 'Roboto', ;
+  font-size: 1.5rem;
   a {
     color: #6d9718;
   }
@@ -79,11 +80,15 @@ p {
   margin: 2rem 0;
 }
 
+ul {
+  line-height: 3rem;
+}
+
 ul.posts {
   padding-left: 0;
 
   li {
     margin-left: 1rem;
-    margin-bottom: .3rem;
+    margin-bottom: .7rem;
   }
 }

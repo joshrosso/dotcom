@@ -17,7 +17,7 @@ fact, this will be my **only** new content for 2021. However, this is a **big**
 piece of content! I'm ecstatic to be writing about (albeit late) my book
 Production Kubernetes!
 
-{{< youtube 6435eNKpyYw >}}
+{{< youtube OW8o70Mfnho  >}}
 
 This book was written alongside my co-workers [John
 Harris](https://twitter.com/johnharris85), Rich Lander, and [Alex
@@ -44,9 +44,9 @@ Details to download or purchase the book are below.
 [Download Production Kubernetes for free at
 tanzu.vmware.com](https://tanzu.vmware.com/content/ebooks/production-kubernetes).
 
-This is a VMware marketing page and does require details about yourself, such as
-your email to download. If you're comfortable with this, you'll be given a (PDF)
-download of the almost 500 page book.
+This is a VMware marketing page and requires an email and other details to
+download. If you're comfortable with this, you'll be given a (PDF) download of
+the full (~500 page) book.
 
 ## Purchase
 

@@ -25,7 +25,6 @@
     {{ if .Content }}
       <h2>{{ template "book-page-link" (dict "Page" . "CurrentPage" $.CurrentPage) }}</h2>
     {{ else }}
-      <h1 class="date-section"><span>{{ partial "docs/title" . }}</span></h1>
     {{ end }}
     {{ template "book-section-children" (dict "Section" . "CurrentPage" $.CurrentPage) }}
 {{ end }}
@@ -40,7 +39,7 @@
   {{ with .Section }}
     {{ range where .Pages "Params.bookhidden" "!=" "true" }}
       {{ if eq .Kind "section" }}
-        <h3>{{ template "book-section" (dict "Section" . "CurrentPage" $.CurrentPage) }}</h3>
+        {{ template "book-section" (dict "Section" . "CurrentPage" $.CurrentPage) }}
       {{ else if and (eq .Kind "page") .Content }}
       <li>{{- template "book-page-link" (dict "Page" . "CurrentPage" $.CurrentPage) -}} | {{ .Date.Format "January 2, 2006" }}</li>
       {{ end }}

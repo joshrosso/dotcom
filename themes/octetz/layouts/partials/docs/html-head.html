@@ -6,8 +6,6 @@
 <title>{{ partial "docs/title" . }} | {{ .Site.Title -}}</title>
 <link rel="icon" href="{{ "favicon.png" | relURL }}" type="image/x-icon">
 
-<link href="https://fonts.googleapis.com/css?family=Lacquer|Roboto&display=swap" rel="stylesheet">
-
 <!-- Theme stylesheet, you can customize scss by creating `assets/custom.scss` in your website -->
 {{- $styles := resources.Get "theme.css" | resources.ExecuteAsTemplate "theme.css" . | resources.ToCSS | resources.Minify | resources.Fingerprint }}
 <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}">

@@ -20,3 +20,19 @@ title = "octetz"
   # (Optional) Set this to true to enable 'Last Modified by' date and git author
   #  information on 'doc' type pages.
   enableGitInfo = true
+
+[markup]
+
+  [markup.highlight]
+    anchorLineNos = false
+    codeFences = true
+    guessSyntax = false
+    hl_Lines = ''
+    lineAnchors = ''
+    lineNoStart = 1
+    lineNos = false
+    lineNumbersInTable = true
+    noClasses = false
+    noHl = false
+    style = 'trac'
+    tabWidth = 4

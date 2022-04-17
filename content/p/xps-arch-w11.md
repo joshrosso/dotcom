@@ -11,7 +11,7 @@ aliases:
 
 # Linux Workstation Setup: XPS, Arch, Windows, Encrypted
 
-{{< youtube OW8o70Mfnho  >}}
+{{< youtube Q4XfaJY2TZo >}}
 
 ## Laptop
 
@@ -91,7 +91,7 @@ To get setup for the installation media, you should:
 2. [Download the Windows 11 **ISO**
 image](https://www.microsoft.com/software-download/windows11).
     
-    ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/77f2ba1f-062d-4e60-ba90-f0694f03f4e3/Untitled.png)
+    ![Install Windows 11](https://octetz.s3.us-east-2.amazonaws.com/w11-download.png)
 
 With the above in place, you can setup the installation media by:
 
@@ -116,7 +116,7 @@ With the above in place, you can setup the installation media by:
 1. Open the address provided by `ventoyplugson`.
 1. In `Global Control Plugin` set `VTOY_WIN11_BYPASS_CHECK` to `1` (on).
 
-    ![ventoy gui](/home/josh/photos/vtoy.png)
+    ![ventoy gui](https://octetz.s3.us-east-2.amazonaws.com/vtoy.png)
 
     > This will ensure we can install Windows 11 with secure boot disabled
     > (required for the Linux install). It will also allow you to install
@@ -142,11 +142,11 @@ the SATA mode to AHCI/NVMe. To setup the BIOS:
 
 1. In `Boot Configuration` > `Secure Boot`, disable secure boot.
 
-    ![BIOS secure boot](/home/josh/photos/secure-boot.png)
+    ![BIOS secure boot](https://octetz.s3.us-east-2.amazonaws.com/secure-boot.png)
 
 1. From `Storage` > `SATA/NVMe Operation`, set the mode to `AHCI/NVMe`.
 
-    ![BIOS AHCI/NVMe operation](/home/josh/photos/nvme.png)
+    ![BIOS AHCI/NVMe operation](https://octetz.s3.us-east-2.amazonaws.com/nvme.png)
 
 1. Apply Changes and power down.
 
@@ -155,7 +155,7 @@ the SATA mode to AHCI/NVMe. To setup the BIOS:
 This laptop will run Windows 11 and Arch Linux. Both operating systems will be
 fully encrypted. The partition layout will be as follows:
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/6e817f1a-e87c-45fa-8308-fa5511603829/Untitled.png)
+![Partition Scheme](https://octetz.s3.us-east-2.amazonaws.com/part.png)
 
 > I've intentionally left out some partitions that will be created by Linux.
 

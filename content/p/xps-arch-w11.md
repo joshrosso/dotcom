@@ -4,7 +4,7 @@ weight: 9910
 description: Setup a Laptop that can dual boot Arch Linux and Windows 11. Fully encrypt both partitions.
 date: 2022-04-18
 images:
-- https://octetz.s3.us-east-2.amazonaws.com/yt_book_graphic.png
+- https://octetz.s3.us-east-2.amazonaws.com/xps-thumb.png
 aliases:
 - /latest
 ---

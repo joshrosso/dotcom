@@ -1,46 +1,29 @@
 ---
-title: "Navigating OCI Artifacts"
+title: "Navigating Remote OCI Artifacts"
 weight: 9910
-description: OCI has long been the way we package container images. However, we've found this standard to host more and more assets over time. Examples include Helm charts and other configuration. In this post, I'll explore how we can navigate, introspect, and mutate these OCI artifacts with a tool independent from a container runtime.
-date: 2022-04-18
+description: OCI has long been the way we package container images. However the standard is being used to host more and more assets. Examples include Helm charts and other configuration. In this post, I'll explore how I navigate, introspect, and mutate OCI artifacts with tooling independent from container runtimes.
+date: 2022-04-26
 images:
-- https://octetz.s3.us-east-2.amazonaws.com/yt_book_graphic.png
-aliases:
-- /latest
+- https://octetz.s3.us-east-2.amazonaws.com/working-with-oci/working-with-oci-title-card.png
 ---
 
-# Navigating OCI Artifacts
+# Navigating Remote OCI Artifacts
 
-OCI has long been the way we package container images. However, we've found this
-standard to host more and more assets over time. Examples include Helm charts
-and other configuration. In this post, I'll explore how we can navigate,
-introspect, and mutate these OCI artifacts with a tools you can use independent
-from a container runtime.
+OCI has long been the way we package container images. Over time the standard
+has being used to host more and more non container-image assets. Examples
+include Helm charts and Carvel packages. In this post, I'll explore how I
+navigate, introspect, and copy OCI artifacts with tooling independent from a
+container runtime.
 
 ## Discovering, Introspecting, and Mutating
 
-For discovering and introspecting artifacts, I use `crane`. It is both a command
-line tool and excellent (Go) library from interacting with OCI artifacts in
-repositories. I use this tool weekly as my Swiss Army Knife for OCI-related
-operations. Since `crane` is independent of a container runtime, I find it
-especially helpful in troubleshooting the assets used by container runtime, like
-Docker.
-
-Let's start with a use-case where you'd like to understand which repos are
-available in a registry. This can be fairly complex as projects like Harbor
-support the idea of embedding projects into projects. For example, all of these
-are valid repositories.
-
-* /project-a
-* /project-a/asset-b
-* /project-a/asset-c/
-
-To start off, lets take a look at VMware's public-facing Harbor instance:
-
-```sh
-$ crane catalog projects.registry.vmware.com/tce
-TODO(joshrosso): output here
-```
+For discovering and introspecting artifacts, I use
+[crane](https://github.com/google/go-containerregistry/tree/main/cmd/crane). It
+is them command line tool companion to the excellent (Go) library
+[google/go-containerregistry](https://github.com/google/go-containerregistry). I
+use `crane` as my Swiss Army Knife for OCI-related operations. Since
+it is independent from a container runtime, I find it especially helpful in
+troubleshooting the assets used by runtimes like `containerd`.
 
 If you know which repository/project you want to interact with, another common
 struggle is figuring out which tags are available. Most UIs like DockerHub or
@@ -86,7 +69,7 @@ $ crane ls index.docker.io/nginx
 
 > Results above trimmed for brevity.
 
-Now that you've got a list of tags, it would be cool to understand what
+Now that you've got a list of tags, it would be good to understand what
 underlies a tag. Perhaps you don't yet wish to pull down all the contents, but
 more so want to look at the image's manifest to better understand its contents.
 
@@ -181,9 +164,9 @@ The resulting JSON is:
 ```
 
 In the above manifest list, we can see this image supports multiple
-architectures! So we'll know that if a container runtime pulls down this tag,
-it'll pull down one of the manifests in the list based on its architecture. For
-example, we'd expect `containerd` running on an ARM Linux host to pull down
+architectures! We now know if a container runtime pulls down this tag, it'll use
+the manifest in the list related to its architecture. For example, we'd expect
+`containerd` running on an ARM Linux host to pull down
 `index.docker.io/nginx@sha256:3100debc8e667aba0a8284f8cff4b209c941a061f2fb07ea8ab97a96c6caec17`.
 
 Now it is time to pull down an actual image. Container images are essentially
@@ -307,7 +290,7 @@ var/
 ```
 
 Copying images between repositories is another useful action. For example,
-consider the need to "relocate" an image into a registry you're hosting. A cool
+consider the need to "relocate" an image into a registry you are hosting. A cool
 capability of `crane` is its ability to copy all architectures of an image and
 maintain all the digest values in the manifest.
 
@@ -388,114 +371,10 @@ identical.
 $ COPY=$(crane manifest index.docker.io/joshrosso/nginx) \
     ORIG=$(crane manifest index.docker.io/nginx) \
     diff <(echo ${COPY}) <(echo ${ORIG})
-
 ```
 
-## Packaging and Pushing Non-Container Images
-
-When building container images, I tend to use `docker` as [its buildx
-functionality works well for multi-architecture
-builds](https://docs.docker.com/desktop/multi-arch/). However, I also push
-non-container images up as OCI images/bundles. To do this, I've grown fond of
-using `imgpkg`.
-
-> At the time of writing, I'm employed by VMware, the primary company sponsoring
-> imgpkg. Independent of that, I do really like this tool.
-
-Let's start off producing an arbitrary manifest. In this case, we'll make a
-simple Kubernetes manifest.
-
-```sh
-cat <<EOF > manifest.yaml
-apiVersion: v1
-kind: Pod
-metadata:
-  name: busybox-sleep
-spec:
-  containers:
-  - name: busybox
-    image: busybox:1.28
-    args:
-    - sleep
-    - "1000000"
-EOF
-```
-
-We can push this manifest up as a OCI image using `imgpkg`:
-
-```
-$ imgpkg push -f manifest.yaml -i index.docker.io/joshrosso/busy-manifest:v1.0.0
-file: manifest.yaml
-Pushed 'index.docker.io/joshrosso/busy-manifest@sha256:f17d2a9e70dfcf3f3c3ab1fc4129eddbefff930eec1e39642e5ebb8af25e9f2b'
-Succeeded
-```
-
-This can be pulled and unpacked using tools like `crane` and `imgpkg`. In this
-model, we're starting to treat OCI-compatible repositories as file stores. The
-carvel tools take the model a step further by attempting to do nuanced things
-with these manifests. For example we can "lock" the container image specified in
-the manifest using `kbld`.
-
-```sh
-$ kbld -f manifest.yaml --lock-output .imgpkg/images.yml
-resolve | final: busybox:1.28 -> index.docker.io/library/busybox@sha256:141c253bc4c3fd0a201d32dc1f493bcf3fff003b6df416dea4f41046e0f37d47
----
-apiVersion: v1
-kind: Pod
-metadata:
-  annotations:
-    kbld.k14s.io/images: |
-      - origins:
-        - resolved:
-            tag: "1.28"
-            url: busybox:1.28
-        url: index.docker.io/library/busybox@sha256:141c253bc4c3fd0a201d32dc1f493bcf3fff003b6df416dea4f41046e0f37d47
-  name: busybox-sleep
-spec:
-  containers:
-  - args:
-    - sleep
-    - "1000000"
-    image: index.docker.io/library/busybox@sha256:141c253bc4c3fd0a201d32dc1f493bcf3fff003b6df416dea4f41046e0f37d47
-    name: busybox
-
-Succeeded
-```
-
-> `.imgpkg` directory needs to be created prior to running the above.
-
-In the above, you can see `index.docker.io/busybox:1.28` resolved to
-`index.docker.io/library/busybox@sha256:141c253bc4c3fd0a201d32dc1f493bcf3fff003b6df416dea4f41046e0f37d47`.
-This is referencing the digest value (SHA) rather than a tag. Since tags can be
-overwritten, it'll provide better guarantees around the integrity of the
-container image. I'll now re-push this image.
-
-```
-$ imgpkg push -f . -b index.docker.io/joshrosso/busy-manifest:v1.0.1
-dir: .
-dir: .imgpkg
-file: .imgpkg/images.yml
-file: manifest.yaml
-Pushed 'index.docker.io/joshrosso/busy-manifest@sha256:ee44383618580abc6126422dea5a5ecfed6f940cf8b43bb01bbf9cebe09bdddf'
-Succeeded
-```
-
-Some subtle differences in the push above include:
-
-1. `-b` is used instead of `-i` to say this should be a bundle, rather than
-   image (check the OCI spec for details on these).
-1. I'm specifying the full directory, `.`, as the file (`-f`) so that the
-   `.imgpkg` contents are also pushed in the bundle.
-
-A final example of where `imgpkg` shines is its ability to **recursively** copy
-all OCI assets to a new registry. Using 
-
-TODO(joshrosos): do a full recursive copy
 
 ## Shoutouts
 
 * [Thanks to the go-containerregistry maintainers for making awesome libraries and
 tools like `crane` and `ko`. Ya'll rock.](TODO(https://github.com/google/go-containerregistry/graphs/contributors)
-
-* [Thanks to the Carvel maintainers for continuing to push to envelope in how we
-  think about OCI artifacts and the packaging of them](TODO(https://github.com/vmware-tanzu/carvel-imgpkg/graphs/contributors)

@@ -11,12 +11,15 @@ and systems. This site is my space to write about topics ~relating to those
 areas. Many posts on this site have accompanying videos on
 [YouTube](https://www.youtube.com/channel/UCkFMkIX1Tb2s8CIgfzmUfLA). 
 
-I'm currently employed by VMware where I lead the technical direction of [Tanzu
-Community Edition](https://github.com/vmware-tanzu/community-edition).  However,
-this website is not affiliated with or reflects views of VMware.  Outside of
-VMware, I have worked for a few startups that influenced the Kubernetes and
-container space early on. Namely, CoreOS and Heptio. Along that journey I
-co-wrote the book [Production
+I am employed by VMware where I lead the technical direction of [Tanzu Community
+Edition](https://github.com/vmware-tanzu/community-edition). However, this
+website is not affiliated with or a reflection of VMware's views.  Outside of
+VMware, I have worked for a startups that heavily influenced the Kubernetes and
+container space. Namely,
+[CoreOS](https://techcrunch.com/2018/11/06/vmware-acquires-heptio-the-startup-founded-by-2-co-founders-of-kubernetes/)
+and
+[Heptio](https://techcrunch.com/2018/11/06/vmware-acquires-heptio-the-startup-founded-by-2-co-founders-of-kubernetes/).
+Along that journey I co-wrote the book [Production
 Kubernetes](https://www.oreilly.com/library/view/production-kubernetes/9781492092292/).
 
 ## Contacts / Social Media
@@ -31,7 +34,7 @@ Along with this site, you can find me at:
 ## Resume
 
 If you're interested in my work history, [you'll find my resume
-here](resume.joshrosso.com).
+here](https://resume.joshrosso.com).
 
 ## Talks
 

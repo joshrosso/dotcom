@@ -3,10 +3,14 @@
 <meta name="description" content="{{ partial "docs/title" . }}">
 {{- template "_internal/opengraph.html" . -}}
 
-<title>{{ partial "docs/title" . }} | {{ .Site.Title -}}</title>
+<!-- when on the homepage, use this static title (for search results) -->
+{{ if .IsHome }}
+  <title>Josh Rosso - Software and systems engineering content</title>
+{{ else }}
+<title>{{ partial "docs/title" . }} - {{ $.Site.Title }}</title>
+{{ end }}
 <link rel="icon" href="{{ "favicon.png" | relURL }}" type="image/x-icon">
 
-<!-- Hind font from https://fonts.google.com/specimen/Hind#standard-styles -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">

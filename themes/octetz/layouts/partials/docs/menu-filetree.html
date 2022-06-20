@@ -35,17 +35,24 @@
 {{ $collapsed := .Section.Params.bookCollapseSection }}
 
 {{ if or $ancestor (not $collapsed) }}
-<ul class="posts">
+<div class="posts">
   {{ with .Section }}
     {{ range where .Pages "Params.bookhidden" "!=" "true" }}
       {{ if eq .Kind "section" }}
         {{ template "book-section" (dict "Section" . "CurrentPage" $.CurrentPage) }}
       {{ else if and (eq .Kind "page") .Content }}
-      <li>{{- template "book-page-link" (dict "Page" . "CurrentPage" $.CurrentPage) -}} | {{ .Date.Format "January 2, 2006" }}</li>
+      <div class="posts-post">
+        <div class="posts-post-title">
+          {{- template "book-page-link" (dict "Page" . "CurrentPage" $.CurrentPage) -}}
+        </div>
+        <div class="posts-post-date">
+          {{ .Date.Format "01/02/2006" }}</li>
+        </div>
+      </div>
       {{ end }}
     {{ end }}
   {{ end }}
-</ul>
+</div>
 {{ end }}
 
 {{ end }}

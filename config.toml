@@ -1,17 +1,17 @@
-baseURL = "https://octetz.com"
+baseURL = "https://joshrosso.com"
 languageCode = "en-us"
-title = "octetz"
+title = "joshrosso"
 theme = 'octetz'
 
 [author]
   name = "Josh Rosso"
-  email = "josh@octetz.com"
+  email = "joshrosso@gmail.com"
 
 [params]
 
   # Set source repository location.
   # Used for 'Last Modified' and 'Edit this page' links.
-  BookRepo = 'https://github.com/octetz/octetz'
+  BookRepo = 'https://github.com/joshrosso/dotcom'
 
   # Enable 'Edit this page' links for 'doc' page type.
   # Disabled by default. Uncomment to enable. Requires 'BookRepo' param.

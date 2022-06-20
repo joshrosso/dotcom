@@ -1,14 +1,9 @@
-# octetz
+# dotcom
 
-The octetz.com website.
+[joshrosso.com](https://joshrosso.com)'s source, templates, and content.
 
-Run site:
+## Running Locally
 
 ```
-hugo server --minify \
-    --theme book \
-    # ensures links and reference like rss have correct host \
-    --baseUrl=https://octetz.com \
-    # ensures links and reference like rss have correct port \
-    --appendPort=false
+hugo serve
 ```

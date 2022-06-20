@@ -8,60 +8,35 @@
 
 <body>
 
-  <div class="content">
-
     <div class="header">
-
-<pre class="logo">
- ■ ■ 
-■   ■
-■   ■
- ■ ■
-</pre>
-<pre class="logo">
-■ ■ ■
-■    
-■    
-■ ■ ■
-</pre>
-<pre class="logo">
-■ ■ ■
-■ ■ ■
-  ■  
-  ■  
-</pre>
-<pre class="logo">
-■ ■ ■ 
-■ ■   
-■     
-■ ■ ■ 
-</pre>
-<pre class="logo">
-■ ■ ■
-■ ■ ■
-  ■  
-  ■  
-</pre>
-<pre class="logo">
-■ ■ ■
-   ■ 
- ■   
-■ ■ ■
-</pre>
-    </div>
-
-    <div class="header">
-      <div class="nav"> 
-        <a href="/c">content</a> | 
-        <a href="https://youtube.com/octetz">youtube</a> | 
-        <a href="https://twitter.com/joshrosso">twitter</a> | 
-        <a href="/rss">rss</a> |
-        <a href="/contact">contact</a>
+      <div class="header-content">
+        <div class="header-content-title">
+            Josh Rosso
+          </div>
+        <div class="header-content-nav">
+        <div class="header-content-nav-item">
+            <a href="/c">content</a> 
+        </div>
+        <div class="header-content-nav-item">
+            <a href="/c">talks</a> 
+        </div>
+        <div class="header-content-nav-item">
+            <a href="/c">book</a> 
+        </div>
+        <div class="header-content-nav-item">
+            <a href="/c">twitter</a> 
+        </div>
+        <div class="header-content-nav-item">
+            <a href="/c">rss</a> 
+        </div>
+          </div>
       </div>
 
     </div>
 
-  {{ template "main" . }}
+  <div class="content">
+
+    {{ template "main" . }}
 
   </div>
 

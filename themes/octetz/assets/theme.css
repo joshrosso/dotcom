@@ -1,36 +1,125 @@
 body {
+  margin: 0;
   background: #fff;
-  color: #1a1a1a;
-  font-family: Inter,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sansa Neue",sans-sans;
+  color: #222;
+  font-family: 'Inter', sans-serif;
   font-size: 1rem;
+}
 
-  a {
-    color: #8764b8;
-  }
-
+a {
+  word-wrap: break-word;
 }
 
 img {
+  display: inline-block;
   max-width: 100%;
 }
 
 div.content {
   margin: 0 auto;
-  display: block;
   max-width: 1000px;
+
+  @media (max-width: 1000px) {
+    padding: 0 1rem;
+  }
+
+  a {
+    color: #ec5565;
+  }
 }
 
 div.header {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+  color: #fff;
+  background-color: #222;
+  border-bottom: 0.4rem solid #ec5565;
   display: flex;
-  align-items: flex-end;
-  /*justify-content: space-between;*/
+}
+
+div.header-content {
+  width: 1000px;
+  margin: 0 auto;
+
+  @media (max-width: 1000px) {
+    padding: 0 1rem;
+  }
+
+  display: flex;
+  justify-content: space-between; 
   flex-wrap: wrap;
-  max-width: 1000px;
+}
+
+div.header-content-title {
+  margin: 1rem 10rem 0 0;
+}
+
+div.header-content-nav {
+  margin: 1rem 0;
+  display: flex;
+}
+
+div.header-content-nav-item {
+  /* When width drops to <= 1000px, move margin to the right
+   * so that text aligns against the far left side after a wrap */
+  @media (min-width: 1000px) {
+    margin: 0 0 0 1rem;
+  }
+  @media (max-width: 1000px) {
+    margin: 0 1rem 0 0;
+  }
+  a {
+    color: #fff;
+    text-decoration: none;
+  }
+  a:hover {
+    color: #ec5565;
+    text-decoration: none;
+  }
+}
+
+div.posts {
+}
+
+div.posts-post {
+  margin: 1rem 0;
+  background-color: #222;
+  @media (min-width: 1000px) {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+div.posts-post-title {
+  a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  a:hover {
+    color: #ec5565;
+    text-decoration: none;
+  }
+  padding: 1rem 0 1rem 1rem;
+  color: #fff;
+  background-color: #222;
+}
+
+div.posts-post-date {
+  display: flex;
+  @media (min-width: 1000px) {
+    width: 120px;
+    padding: 1rem 0;
+    justify-content: center;
+  }
+  @media (max-width: 1000px) {
+    padding: 0 1rem;
+  }
+  color: #222;
+  background-color: #ec5565;
 }
 
 pre {
+  white-space: nowrap;
+  overflow-x: auto;
   border-radius: .8rem;
   margin: 0 0;
   padding: 1rem;
@@ -38,14 +127,9 @@ pre {
 }
 
 pre, code {
-  white-space: pre-wrap;
   word-wrap: break-word;
   color: #000;
   background-color: #f5f5f5;
-  @media (prefers-color-scheme: dark) {
-    background-color: #202020;
-    color: #eeeeee;
-  }
 }
 
 p code {
@@ -53,18 +137,9 @@ p code {
   border-radius: .4rem;
 }
 
-.logo {
-  margin-right: 1rem;
-  padding: 0;
-  font-size: .5rem;
-  font-family: monospace;
-  background: none;
-}
-
 blockquote {
   font-size: .7rem;
   color: #a0a0a0;
-  margin: 0 1rem;
 }
 
 h1 {
@@ -72,31 +147,17 @@ h1 {
 }
 
 h2, h3, h4 {
-  margin-top: 1.8rem;
+  margin: 1.8rem 0 0 0;
 }
 
 p {
-  margin: 2rem 0;
+  margin: 1rem 0;
   line-height: 2rem;
 }
 
 ul {
   line-height: 1.5rem;
 }
-
-ul.posts {
-  padding-left: 0;
-
-  li {
-    margin-left: 1rem;
-    margin-bottom: .7rem;
-  }
-}
-
-.nav {
-  margin-bottom: 2rem;
-}
-
 
 /*syntax-highlighting CSS*/
 /* Background */ .chroma { background-color: #f5f5f5; border-radius: .8rem; }

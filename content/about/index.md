@@ -22,7 +22,7 @@ and
 Along that journey I co-wrote the book [Production
 Kubernetes](https://www.oreilly.com/library/view/production-kubernetes/9781492092292/).
 
-## Contacts / Social Media
+## Contact / Social Media
 
 Along with this site, you can find me at:
 

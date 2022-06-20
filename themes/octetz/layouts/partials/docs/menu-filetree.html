@@ -63,9 +63,3 @@
   <a href="{{ .RelPermalink }}" {{ if eq $.CurrentPage . }} class="active"{{ end }}>{{ partial "docs/title" . }}</a>
 {{ end }}
 {{ end }}
-
-{{ define "book-div-page-link" }}
-{{ with .Page }}
-  <a href="{{ .RelPermalink }}" {{ if eq $.CurrentPage . }} class="active"{{ end }}>
-{{ end }}
-{{ end }}

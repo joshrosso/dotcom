@@ -118,7 +118,6 @@ div.posts-post-date {
 }
 
 pre {
-  white-space: nowrap;
   overflow-x: auto;
   border-radius: .8rem;
   margin: 0 0;

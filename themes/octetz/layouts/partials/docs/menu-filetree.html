@@ -41,7 +41,8 @@
       {{ if eq .Kind "section" }}
         {{ template "book-section" (dict "Section" . "CurrentPage" $.CurrentPage) }}
       {{ else if and (eq .Kind "page") .Content }}
-      <div class="posts-post">
+
+      <div class="posts-post" onclick="location.href='{{ .RelPermalink }}';" style="cursor: pointer;">
         <div class="posts-post-title">
           {{- template "book-page-link" (dict "Page" . "CurrentPage" $.CurrentPage) -}}
         </div>
@@ -60,5 +61,11 @@
 {{ define "book-page-link" }}
 {{ with .Page }}
   <a href="{{ .RelPermalink }}" {{ if eq $.CurrentPage . }} class="active"{{ end }}>{{ partial "docs/title" . }}</a>
+{{ end }}
+{{ end }}
+
+{{ define "book-div-page-link" }}
+{{ with .Page }}
+  <a href="{{ .RelPermalink }}" {{ if eq $.CurrentPage . }} class="active"{{ end }}>
 {{ end }}
 {{ end }}

@@ -151,7 +151,7 @@ EFI partition. Using VeraCrypt, the Windows partition will be encrypted.
 
 1. Click `Change what the power buttons do`.
 
-1. Click `Change settings that are unavailble`.
+1. Clickk `Change settings that are unavailable`.
 
 1. Uncheck `Turn on fast startup (recommended)`.
 

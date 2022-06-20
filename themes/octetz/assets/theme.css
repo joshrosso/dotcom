@@ -80,17 +80,11 @@ div.posts {
 }
 
 div.posts-post {
-  margin: 1rem 0;
-  background-color: #222;
-  @media (min-width: 1000px) {
-    display: flex;
-    justify-content: space-between;
-  }
-}
+  padding: 2rem 0;
+  border-bottom: .1rem solid #ccc;
 
-div.posts-post-title {
   a {
-    color: #fff;
+    color: #222;
     text-decoration: none;
     font-weight: bold;
   }
@@ -98,23 +92,25 @@ div.posts-post-title {
     color: #ec5565;
     text-decoration: none;
   }
-  padding: 1rem 0 1rem 1rem;
-  color: #fff;
-  background-color: #222;
+
+}
+
+div.posts-post:hover {
+  a {
+    color: #ec5565;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+}
+
+div.posts-post-title {
+  font-size: 1.2rem;
 }
 
 div.posts-post-date {
-  display: flex;
-  @media (min-width: 1000px) {
-    width: 120px;
-    padding: 1rem 0;
-    justify-content: center;
-  }
-  @media (max-width: 1000px) {
-    padding: 0 1rem;
-  }
-  color: #222;
-  background-color: #ec5565;
+  margin: 1rem 0 0 0;
+  color: #ec5565;
 }
 
 pre {

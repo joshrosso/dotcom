@@ -139,7 +139,7 @@ width="600" >}}
 
 Notice the `host` value highlighted in yellow in the `team-a` and `team-b`
 namespaces. Both attempt to define routing rules for the host `a.team.com`. Each
-set a different destination (dest), team-a-pod and team-b-pod respectivly. This
+set a different destination (dest), team-a-pod and team-b-pod respectively. This
 raises interesting questions: 
 
 * Will the load balancer act deterministically? 

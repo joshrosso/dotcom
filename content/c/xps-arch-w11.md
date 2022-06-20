@@ -216,7 +216,7 @@ with partitions shared between Windows and Linux. To disable fast boot:
 
 1. Click `Change what the power buttons do`.
 
-1. Click `Change settings that are unavailble`.
+1. Click `Change settings that are unavailable`.
 
 1. Uncheck `Turn on fast startup (recommended)`.
 

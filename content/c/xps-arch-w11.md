@@ -1,5 +1,5 @@
 ---
-title: "Ultimate Linux Workstation - Arch, Windows 11, Encrypted"
+title: "Linux (Dual Boot) Workstation - Arch, Windows 11, Encrypted"
 weight: 9910
 description: Setup a Laptop that can dual boot Arch Linux and Windows 11. Fully encrypt both partitions.
 date: 2022-04-18

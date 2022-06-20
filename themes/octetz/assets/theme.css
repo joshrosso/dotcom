@@ -80,7 +80,7 @@ div.posts {
 }
 
 div.posts-post {
-  padding: 2rem 0;
+  padding: 1.5rem 0;
   border-bottom: .1rem solid #ccc;
 
   a {
@@ -105,10 +105,11 @@ div.posts-post:hover {
 }
 
 div.posts-post-title {
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 
 div.posts-post-date {
+  font-size: .8rem;
   margin: 1rem 0 0 0;
   color: #ec5565;
 }

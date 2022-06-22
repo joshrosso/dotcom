@@ -10,9 +10,21 @@ a {
   word-wrap: break-word;
 }
 
+sup {
+  /* Ensure line-height is not offset when 
+   * footnote (or superscript is added) */
+  vertical-align:top; 
+  line-height:1.7em;
+}
+
 img {
   display: inline-block;
   max-width: 100%;
+}
+
+img.center {
+  margin: 0 auto;
+  display: block;
 }
 
 div.content {
@@ -110,7 +122,7 @@ div.posts-post-title {
 
 div.posts-post-date {
   font-size: .8rem;
-  margin: 1rem 0 0 0;
+  margin: .2rem 0 0 0;
   color: #ec5565;
 }
 
@@ -120,6 +132,10 @@ pre {
   margin: 0 0;
   padding: 1rem;
   font-size: 1rem;
+}
+
+code {
+  font-family: 'JetBrains Mono', monospace;
 }
 
 pre, code {

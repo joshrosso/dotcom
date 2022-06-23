@@ -1,7 +1,7 @@
 ---
 title: "Navigating OCI Artifacts and Images"
 weight: 9910
-description: OCI has long been the standard format of container images. Over time this standard has grown to support additional artifacts. As both the types of OCI-compliant artifacts and images have grown, it is important to have tooling enabling discovery and introspection. This post covers the commend line tool crane and how it can be used to discovery, introspect, and copy OCI assets.
+description: OCI has long been the standard format of container images. Over time this standard has grown to support additional artifacts. As both the types of OCI-compliant artifacts and images have grown, it is important to have tooling enabling discovery and introspection. This post covers the commend line tool crane and how it can be used for discovery, introspection, and copying OCI assets.
 date: 2022-06-22
 images:
 - https://files.joshrosso.com/img/site/navigating-oci/twitter-title-navigating-oci.png

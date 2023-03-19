@@ -2,6 +2,7 @@
 <html lang="{{ .Site.Language.Lang }}">
 
 <head>
+  {{ if .Params.math }}{{ partial "docs/katex.html" . }}{{ end }}
   {{ partial "docs/html-head" . }}
   {{ template "_internal/twitter_cards.html" . }}
 </head>

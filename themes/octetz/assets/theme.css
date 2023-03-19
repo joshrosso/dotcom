@@ -17,6 +17,10 @@ sup {
   line-height:1.7em;
 }
 
+.katex {
+  font-size: 1.5rem;
+}
+
 img {
   display: inline-block;
   max-width: 100%;
@@ -35,9 +39,10 @@ div.content {
     padding: 0 1rem;
   }
 
-  a {
-    color: #ec5565;
-  }
+}
+
+a {
+  color: #ec5565;
 }
 
 div.header {
@@ -149,6 +154,11 @@ p code {
   border-radius: .4rem;
 }
 
+li code {
+  padding: .4rem;
+  border-radius: .4rem;
+}
+
 blockquote {
   font-size: .7rem;
   color: #a0a0a0;
@@ -164,11 +174,12 @@ h2, h3, h4 {
 
 p {
   margin: 1rem 0;
-  line-height: 2rem;
+  line-height: 1.5rem;
 }
 
-ul {
-  line-height: 1.5rem;
+li {
+  margin-top: .3rem;
+  line-height: 2rem;
 }
 
 /*syntax-highlighting CSS*/

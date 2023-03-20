@@ -11,7 +11,7 @@ behind the scenes? Additionally, did you know there's a way to persist them to
 act as simple queues, facilitating interprocess communication? I'll be delving
 into pipes today. Let's go!
 
-{{ youtube _TiDWJ-W8nA }}
+{{< youtube _TiDWJ-W8nA >}}
 
 ## Pipe
 

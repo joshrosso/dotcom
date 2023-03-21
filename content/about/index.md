@@ -11,11 +11,11 @@ and systems. This site is my space to write about topics ~relating to those
 areas. Many posts on this site have accompanying videos on
 [YouTube](https://www.youtube.com/channel/UCkFMkIX1Tb2s8CIgfzmUfLA). 
 
-I am employed by VMware where I lead the technical direction of [Tanzu Community
-Edition](https://github.com/vmware-tanzu/community-edition). However, this
-website is not affiliated with or a reflection of VMware's views.  Outside of
-VMware, I have worked for a startups that heavily influenced the Kubernetes and
-container space. Namely,
+As for work, I'm currently looking for my next thing. Recently I was VMware
+where I lead the technical direction of [Tanzu Community
+Edition](https://github.com/vmware-tanzu/community-edition). I have also worked
+for a startups that heavily influenced the Kubernetes and container space.
+Namely,
 [CoreOS](https://techcrunch.com/2018/11/06/vmware-acquires-heptio-the-startup-founded-by-2-co-founders-of-kubernetes/)
 and
 [Heptio](https://techcrunch.com/2018/11/06/vmware-acquires-heptio-the-startup-founded-by-2-co-founders-of-kubernetes/).

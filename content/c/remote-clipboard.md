@@ -1,6 +1,6 @@
 ---
 title: 'Clipboard Sharing to a Remote Dev Environment'
-date: 2023-03-26
+date: 2023-04-06
 weight: 9908
 ---
 

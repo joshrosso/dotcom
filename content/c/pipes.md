@@ -144,11 +144,12 @@ open over time, perhaps like a channel?
 
 ## Named Pipes
 
-Named pipes are an extension of this pipe model, where a file is created to
-facilitate processes reading and writing to them. They act as first in first out
-(FIFO) queues and can be created using `mkfifo`. This command is available on
-most *nix environments. Another cool aspect is that we can largely treat these
-as files we’re reading from, they just happen to be cleared when read.
+Named pipes are an extension of this pipe model, where a buffer is create and
+presented as a file to enable reading and writing from processes. They act as
+first in first out (FIFO) queues and can be created using `mkfifo`. This command
+is available on most *nix environments. Another cool aspect is that we can
+largely treat these as files we’re reading from, they just happen to be cleared
+when read.
 
 Let’s create a named pipe where processes can write JSON to and `jsonchk` can
 report what it found over time.

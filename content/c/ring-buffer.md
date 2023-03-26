@@ -12,6 +12,8 @@ countless times throughout my career to solve a myriad of things. Today i’m
 going to take you through an example problem, the design of a ring buffer, and
 an implementation (in Go).
 
+{{< youtube KyreJSKEagg >}}
+
 ## Problem
 
 You’re tasked with getting data from thousands of low-powered sensors to a

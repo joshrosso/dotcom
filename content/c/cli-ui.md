@@ -1,6 +1,6 @@
 ---
 title: 'CLIs serving UIs'
-date: 2023-03-30
+date: 2023-03-29
 weight: 9908
 ---
 
@@ -11,6 +11,8 @@ co-workers. The challenge of onboarding users to a new CLI is that there’s a
 whole new set of commands, subcommands, flags, and arguments for the user to
 work with. While my daily workflows are essentially built on CLIs, there’s no
 doubting that a UI can ease the on-ramp and usability of your tooling.
+
+{{< youtube _6B7fSK8NAY >}}
 
 When I was working on Tanzu Community Edition at VMware, I saw first hand how
 successful a UI could be. The `tanzu` CLI was responsible for creating

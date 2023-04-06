@@ -1,6 +1,6 @@
 ---
 title: 'Ring Buffer'
-date: 2023-04-13
+date: 2023-04-06
 weight: 9906
 math: true
 ---

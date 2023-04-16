@@ -1,7 +1,7 @@
 ---
 title: 'Clipboard Sharing to a Remote Dev Environment'
 date: 2023-04-13
-weight: 9907
+weight: 9905
 ---
 
 # Clipboard Sharing to a Remote Dev Environment

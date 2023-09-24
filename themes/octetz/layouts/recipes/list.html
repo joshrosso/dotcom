@@ -1,0 +1,11 @@
+{{ define "main" }}
+{{ partial "recipes/list" . }}
+
+<article class="markdown">
+  {{- .Content -}}
+</article>
+{{ end }}
+
+{{ define "toc" }}
+  {{ partial "docs/toc" . }}
+{{ end }}

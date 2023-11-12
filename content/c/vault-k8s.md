@@ -3,6 +3,7 @@ title: Managing App Secrets with Vault and Kubernetes
 weight: 9100
 description: How to integrate Vault and Kubernetes together to expose secrets in applications (Kubernetes) and manage secrets (Vault).
 date: 2023-09-17
+draft: true
 aliases:
 ---
 

@@ -3,6 +3,7 @@ title: Kubernetes Base Images for qemu/kvm/libvirt
 weight: 9100
 description: Creating base images for Kubernetes that can work in the qemu/kvm/libvirt stack (qcow2)
 date: 2023-09-17
+draft: true
 aliases:
 ---
 

@@ -29,8 +29,7 @@
       {{ with .Site.Author.email }}<author>{{.}}{{ with $.Site.Author.name }} ({{.}}){{end}}</author>{{end}}
       <guid>{{ .Permalink }}</guid>
       <description>{{ .Summary | safeHTML }}</description>
-      {{ $content := trim .Content "\r\n"}}
-      <content:encoded>{{ printf "<![CDATA[%q]]>" $content | safeHTML }}</content:encoded>
+      <content:encoded>{{ printf "<![CDATA[%q]]>" .Content | html }}</content:encoded>
     </item>
     {{ end }}
   </channel>

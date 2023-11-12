@@ -1,0 +1,2 @@
+{{ $file := .Get 0 }}
+{{ (printf "%s%s" "/static" $file) | readFile | replaceRE "^---[\\s\\S]+?---" "" | safeHTML }}

@@ -21,6 +21,7 @@
 	{{ printf "<atom:link href=%q rel=\"self\" type=%q />" .Permalink .MediaType | safeHTML }}
     {{ end }}
     {{ range $pages }}
+	{{ .Scratch.Set "isRSS" "true" }}
     <item>
       <title>{{ .Title }}</title>
       <link>{{ .Permalink }}</link>
@@ -28,7 +29,8 @@
       {{ with .Site.Author.email }}<author>{{.}}{{ with $.Site.Author.name }} ({{.}}){{end}}</author>{{end}}
       <guid>{{ .Permalink }}</guid>
       <description>{{ .Summary | safeHTML }}</description>
-      <content:encoded><![CDATA[ {{ .Content | html }} ]]&gt; </content:encoded>
+      {{ $content := trim .Content "\r\n"}}
+      <content:encoded>{{ printf "<![CDATA[%q]]>" $content | safeHTML }}</content:encoded>
     </item>
     {{ end }}
   </channel>

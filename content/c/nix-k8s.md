@@ -8,6 +8,10 @@ aliases:
 
 # Nix: Hypervisor, Kubernetes, and Containters
 
+TODO YOUTUBE LINK
+
+_This guide accompanies my 2023 Kubecon talk, [Nix, Kubernetes, and the Pursuit of Reproducibility](http://TODO)._
+
 [Nix](https://nixos.org), the language, packages, and operating system, is
 seeing increased popularity with its promise of providing a highly-composable
 way to create reproducible software. I've been intrigued by the Nix ecosystem
@@ -23,7 +27,6 @@ transition to Nix(OS). I'll attempt to keep this guide pretty concise to the act
 steps taken, but see my Kubecon presentation for additional context (and some
 jokes) around the use case:
 
-{{< youtube TODO >}}
 
 ## Hypervisor
 
@@ -31,7 +34,7 @@ My hypervisors are run on an amalgamation of computers. These computers range
 from decommissioned enterprise gear to old consumer hardware (often utilizing a
 laptop or 2). For evidence of the "jankyness", see below:
 
-<img src="https://files.joshrosso.com/img/site/nix-k8s/homelab.jpeg" height="400px">
+<img class="center" src="https://files.joshrosso.com/img/site/nix-k8s/homelab.jpeg" height="400px">
 
 Given that hardware may come and go, it's important I can provision the
 hypervisor consistently. For setting up a hypervisor, the exercise largely
@@ -459,9 +462,9 @@ OCI-compliant container images, which then run via a container runtime such as
 `containerd`. As far as I know, `pkgs.dockerTools` is the most ubiquitous was
 to produce images with Nix. It has a bunch of mapping that relate to what you'd
 expect in a Dockerfile, and many more benefits such as the ability to ensure
-each `/nix/store` asset built is put in its own layer. Don't like the
-**docker** part of the tool name throw you off. The outputted image will be able
-run with any container runtime that support OCI-based images (which should be
+each `/nix/store` asset built is put in its own layer. Don't let the
+**docker** part of the tool name throw you off. The outputted image will run
+with any container runtime that supports OCI-based images (which should be
 most/all of them).
 
 Below is an example of an image building `nginx`, this is largely copied from
@@ -548,7 +551,7 @@ spec:
     - containerPort: 80
 ```
 
-The port-forward command
+The port-forward command:
 
 ```sh
 kubectl port-forward --address 0.0.0.0 pods/a-message-from-the-underworld 8080:80
@@ -569,4 +572,4 @@ guide.
 1. Checkout farcaller's NixCon talk on [Kuberentes deployments with
    Nix](https://www.youtube.com/watch?v=SEA1Qm8K4gY), it covers using Nix for
    manifest generation.
-1. Considering running NixOS on your desktop/laptop.
+1. Consider running NixOS on your desktop/laptop.

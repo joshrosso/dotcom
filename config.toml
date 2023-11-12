@@ -22,12 +22,13 @@ theme = 'octetz'
   #  information on 'doc' type pages.
   enableGitInfo = true
 
-
 [markup]
 
   [markup.goldmark]
     [markup.goldmark.renderer]
       unsafe = true
+      [markup.goldmark.extensions.typographer]
+      	disable = true
 
   [markup.highlight]
     anchorLineNos = false

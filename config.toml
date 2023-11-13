@@ -1,6 +1,6 @@
-baseURL = "https://joshrosso.com"
+baseURL = "https://octetz.com"
 languageCode = "en-us"
-title = "Josh Rosso"
+title = "octetz"
 theme = 'octetz'
 
 [author]

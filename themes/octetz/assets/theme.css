@@ -31,14 +31,54 @@ img.center {
   display: block;
 }
 
-div.content {
-  margin: 0 auto;
-  max-width: 1000px;
+div.content-container {
+  max-width: 1500px;
+  margin-top: 0;
+  margin-bottom: 0;
+  /* this calculation works as follows:
+   * since calc() doesn't support auto, calculate auto by doing:
+   * 50% - (half of this container's width)
+   * from the above, remove 50px, which I can't reason about at this point, but
+   * it works well :)
+   */
+  margin-left: calc(50% - 550px + 50px);
+  margin-right: auto;
+  display: flex;
+  @media (max-width: 1050px) {
+	  margin-left: auto;
+    	  padding: 0 1rem;
+	  
+  }
+  @media (max-width: 1250px) {
+	  max-width: 1500px;
+  }
+}
 
-  @media (max-width: 1000px) {
-    padding: 0 1rem;
+div.content {
+  max-width: 900px;
+  @media (max-width: 1050px) {
+	  width: 100%;
+	  
+  }
+}
+div.content-toc {
+  padding-left: 10px;
+  top: 0;
+  position: sticky;	
+  width: 400px;
+  /* TODO(joshrosso):
+   * checkout stackoverflow for example of how to do more elegant calculation */
+  max-height: 80vh;
+  @media (max-width: 1250px) {
+	  width: 200px;
+  }
+  @media (max-width: 1050px) {
+	  display: none;
   }
 
+  ul {
+	  padding-left: 20px;
+  }
 }
 
 a {

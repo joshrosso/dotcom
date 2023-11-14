@@ -1,10 +1,11 @@
 {{ define "main" }}
-<article class="markdown">
-  {{- .Content -}}
-</article>
+  <div class="content-container">
+  <div class="content">
+  	{{- .Content -}}
+  </div>
+  <div class="content-toc">
+    <h3>Contents</h3>
+    {{ .TableOfContents }}
+  </div>
+  </div>
 {{ end }}
-
-{{ define "toc" }}
-  {{ partial "docs/toc" . }}
-{{ end }}
-

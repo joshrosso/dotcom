@@ -34,11 +34,13 @@
       </div>
 
     </div>
-
-  <div class="content">
-
-    {{ template "main" . }}
-
+  <div class="body-container">
+	  <div class="content">
+	    {{ template "main" . }}
+	  </div>
+	  <div class="content-toc">
+		  {{ .TableOfContents }}
+	  </div>
   </div>
 
 </body>

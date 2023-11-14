@@ -38,7 +38,20 @@ div.content {
   @media (max-width: 1000px) {
     padding: 0 1rem;
   }
+}
 
+div.content-toc {
+  display: flex;
+  position: fixed;
+  width: 100;
+  top: 0;
+  left: auto;
+  right: auto;
+  /*max-width: 80px;*/
+
+  @media (max-width: 1000px) {
+    padding: 0 1rem;
+  }
 }
 
 a {

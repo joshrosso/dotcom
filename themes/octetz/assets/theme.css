@@ -31,17 +31,20 @@ img.center {
   display: block;
 }
 
+div.content-container-menu {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
 div.content-container {
   max-width: 1500px;
   margin-top: 0;
   margin-bottom: 0;
   /* this calculation works as follows:
    * since calc() doesn't support auto, calculate auto by doing:
-   * 50% - (half of this container's width)
-   * from the above, remove 50px, which I can't reason about at this point, but
-   * it works well :)
+   * 50% - (half of this container's width) + (50 since the header is only a 1000px width)
    */
-  margin-left: calc(50% - 550px + 50px);
+  margin-left: calc(50% - 500px);
   margin-right: auto;
   display: flex;
   @media (max-width: 1050px) {

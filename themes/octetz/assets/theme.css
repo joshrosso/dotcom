@@ -1,9 +1,26 @@
+:root {
+  --bg-color-light: #fff;
+  --font-color-light: #222;
+  --bg-color-dark: #181a1b;
+  --font-color-dark: rgb(211, 207, 201);
+  --bg-code-color-light: #f2f2f2;
+  --bg-code-color-dark: #222;
+  --svg-path-light: #000;
+  --svg-path-dark: #fff;
+  --svg-bg-light: #fff;
+  --svg-bg-dark: #181a1b;
+}
+
 body {
   margin: 0;
-  background: #fff;
-  color: #222;
+  background: var(--bg-color-light);
+  color: var(--font-color-light);
   font-family: 'Inter', sans-serif;
   font-size: 1rem;
+  @media (prefers-color-scheme: dark) {
+    background: var(--bg-color-dark);
+    color: var(--font-color-dark);
+  }
 }
 
 a {
@@ -29,6 +46,44 @@ img {
 img.center {
   margin: 0 auto;
   display: block;
+}
+
+switch {
+	color: #fff !important;
+}
+
+svg {
+  background-color: var(--svg-bg-light) !important;
+  @media (prefers-color-scheme: dark) {
+    background-color: var(--svg-bg-dark) !important;
+  }
+  b, i {
+    color: var(--svg-path-light);
+    @media (prefers-color-scheme: dark) {
+      color: var(--svg-path-dark);
+    }
+  }
+  div {
+    color: var(--svg-path-light) !important;
+    @media (prefers-color-scheme: dark) {
+      color: var(--svg-path-dark) !important;
+    }
+  }
+}
+
+rect {
+  stroke: var(--svg-path-light);
+  fill: var(--svg-bg-light);
+  @media (prefers-color-scheme: dark) {
+    stroke: var(--svg-path-dark);
+    fill: var(--svg-bg-dark);
+  }
+}
+path {
+  stroke: var(--svg-path-light);
+  @media (prefers-color-scheme: dark) {
+    stroke: var(--svg-path-dark);
+  }
 }
 
 
@@ -145,7 +200,10 @@ div.posts-post {
   border-bottom: .1rem solid #ccc;
 
   a {
-    color: #222;
+    color: var(--font-color-light);
+    @media (prefers-color-scheme: dark) {
+      color: var(--font-color-dark);
+    }
     text-decoration: none;
     font-weight: bold;
   }
@@ -189,8 +247,10 @@ code {
 
 pre, code {
   word-wrap: break-word;
-  color: #000;
-  background-color: #f5f5f5;
+  color: var(--font-color-light);
+  @media (prefers-color-scheme: dark) {
+    color: var(--font-color-dark);
+  }
 }
 
 p code {
@@ -227,7 +287,13 @@ li {
 }
 
 /*syntax-highlighting CSS*/
-/* Background */ .chroma { background-color: #f5f5f5; border-radius: .8rem; }
+/* Background */ .chroma { 
+  background-color: var(--bg-code-color-light); 
+  border-radius: .8rem; 
+  @media (prefers-color-scheme: dark) {
+    background-color: var(--bg-code-color-dark);
+  }
+}
 /* Other */ .chroma .x {  }
 /* Error */ .chroma .err { color: #a61717; background-color: #e3d2d2 }
 /* LineTableTD */ .chroma .lntd { vertical-align: top; padding: 0; margin: 0; border: 0; }

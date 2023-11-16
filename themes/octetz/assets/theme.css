@@ -1,9 +1,22 @@
+:root {
+  --bg-color-light: #fff;
+  --font-color-light: #222;
+  --bg-color-dark: #181a1b;
+  --font-color-dark: rgb(211, 207, 201);
+  --bg-code-color-light: #f2f2f2;
+  --bg-code-color-dark: #222;
+}
+
 body {
   margin: 0;
-  background: #fff;
-  color: #222;
+  background: var(--bg-color-light);
+  color: var(--font-color-light);
   font-family: 'Inter', sans-serif;
   font-size: 1rem;
+  @media (prefers-color-scheme: dark) {
+    background: var(--bg-color-dark);
+    color: var(--font-color-dark);
+  }
 }
 
 a {
@@ -145,7 +158,10 @@ div.posts-post {
   border-bottom: .1rem solid #ccc;
 
   a {
-    color: #222;
+    color: var(--font-color-light);
+    @media (prefers-color-scheme: dark) {
+      color: var(--font-color-dark);
+    }
     text-decoration: none;
     font-weight: bold;
   }
@@ -189,8 +205,10 @@ code {
 
 pre, code {
   word-wrap: break-word;
-  color: #000;
-  background-color: #f5f5f5;
+  color: var(--font-color-light);
+  @media (prefers-color-scheme: dark) {
+    color: var(--font-color-dark);
+  }
 }
 
 p code {
@@ -227,7 +245,13 @@ li {
 }
 
 /*syntax-highlighting CSS*/
-/* Background */ .chroma { background-color: #f5f5f5; border-radius: .8rem; }
+/* Background */ .chroma { 
+  background-color: var(--bg-code-color-light); 
+  border-radius: .8rem; 
+  @media (prefers-color-scheme: dark) {
+    background-color: var(--bg-code-color-dark);
+  }
+}
 /* Other */ .chroma .x {  }
 /* Error */ .chroma .err { color: #a61717; background-color: #e3d2d2 }
 /* LineTableTD */ .chroma .lntd { vertical-align: top; padding: 0; margin: 0; border: 0; }

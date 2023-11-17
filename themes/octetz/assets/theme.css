@@ -323,7 +323,12 @@ li {
 /* NameNamespace */ .chroma .nn { color: #555555 }
 /* NameOther */ .chroma .nx {  }
 /* NameProperty */ .chroma .py {  }
-/* NameTag */ .chroma .nt { color: #000080 }
+/* NameTag */ .chroma .nt { 
+  color: #000080;
+  @media (prefers-color-scheme: dark) {
+    color: #4cc9f0;
+  }
+}
 /* NameVariable */ .chroma .nv { color: #008080 }
 /* NameVariableClass */ .chroma .vc {  }
 /* NameVariableGlobal */ .chroma .vg {  }

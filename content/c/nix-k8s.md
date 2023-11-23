@@ -2,15 +2,15 @@
 title: 'Nix: Hypervisor, Kubernetes, and Containers'
 weight: 9100
 description: This guide accompanies my 2023 Kubecon talk, Nix, Kubernetes, and the Pursuit of Reproducibility. It demonstrates how to use Nix(OS) for all layers of a server stack. The hypervisor, which includes network stack configuration along with libvirt, qemu, and kvm. The VM stack, which includes the bits to run Kubernetes. And lastly, container images, which run on the Kubernetes cluster.
-date: 2023-11-11
+date: 2023-11-23
 aliases:
+images:
+- https://files.joshrosso.com/img/site/nix-k8s/nix-titlecard.png
 ---
 
 # Nix: Hypervisor, Kubernetes, and Containters
 
-TODO YOUTUBE LINK
-
-_This guide accompanies my 2023 Kubecon talk, [Nix, Kubernetes, and the Pursuit of Reproducibility](http://TODO)._
+_This guide accompanies my 2023 Kubecon talk, [Nix, Kubernetes, and the Pursuit of Reproducibility](https://youtu.be/U-mSWU4see0?si=j4FnoKxr8P8cE_SG)._
 
 [Nix](https://nixos.org), the language, packages, and operating system, is
 seeing increased popularity with its promise of providing a highly-composable
@@ -27,7 +27,7 @@ transition to Nix(OS). I'll attempt to keep this guide pretty concise to the act
 steps taken, but see my Kubecon presentation for additional context (and some
 jokes) around the use case:
 
-{{< youtube KyreJSKEagg >}}
+{{< youtube U-mSWU4see0 >}}
 
 ## Hypervisor
 

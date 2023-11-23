@@ -8,9 +8,9 @@
 {{- printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"?>" | safeHTML }}
 <rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/">
   <channel>
-    <title>octetz</title>
+    <title>joshrosso</title>
     <link>{{ .Permalink }}</link>
-    <description>Software and systems engineering content by Josh Rosso.</description>
+    <description>Software and systems engineering content.</description>
     {{ with .Site.LanguageCode }}
     <language>{{.}}</language>{{end}}{{ with .Site.Author.email }}
     <managingEditor>{{.}}{{ with $.Site.Author.name }} ({{.}}){{end}}</managingEditor>{{end}}{{ with .Site.Author.email }}

@@ -5,7 +5,7 @@ description: This guide accompanies my 2023 Kubecon talk, Nix, Kubernetes, and t
 date: 2023-11-23
 aliases:
 images:
-- https://files.joshrosso.com/img/site/navigating-oci/twitter-title-navigating-oci.png
+- https://files.joshrosso.com/img/site/nix-k8s/nix-titlecard.png
 ---
 
 # Nix: Hypervisor, Kubernetes, and Containters

@@ -8,7 +8,7 @@ images:
 - https://files.joshrosso.com/img/site/nix-k8s/nix-titlecard.png
 ---
 
-# Nix: Hypervisor, Kubernetes, and Containters
+# Nix: Hypervisor, Kubernetes, and Containers
 
 _This guide accompanies my 2023 Kubecon talk, [Nix, Kubernetes, and the Pursuit of Reproducibility](https://youtu.be/U-mSWU4see0?si=j4FnoKxr8P8cE_SG)._
 

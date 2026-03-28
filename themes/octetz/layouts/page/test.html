@@ -32,12 +32,15 @@
 
     <div class="book-page">
       {{ partial "docs/mobile-header" . }}
-      {{ template "main" . }}
+      <article class="markdown">
+        {{- .Content -}}
+      </article>
       {{ partial "docs/footer" . }}
       {{ partial "docs/inject/footer" . }}
     </div>
 
-    {{ template "toc" . }}
+    {{ partial "docs/toc" . }}
+
   </main>
 
   {{ partial "docs/inject/body" . }}
